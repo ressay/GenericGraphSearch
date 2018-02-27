@@ -1,6 +1,5 @@
 package GenericGraphSearch;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -13,6 +12,7 @@ public class GraphSearch
     private LinkedList<Node> closed = new LinkedList<>();
     private Evaluator evaluator;
     private int maxDepth = 1000000;
+    private String pathToInputFile;
 
     public GraphSearch(Storage open, Evaluator evaluator) {
         this.open = open;
@@ -24,19 +24,19 @@ public class GraphSearch
         this.evaluator = evaluator;
         this.maxDepth = maxDepth;
     }
-
-    public Node search(Node start)
-    {
+    public Node search(Node start) {
         LinkedList<Node> successors;
         Node current;
         open.add(start);
-        int depth = 0;
         while (!open.isEmpty())
         {
             current = open.getNext();
             if(current.getDepth() > maxDepth) continue;
             if(evaluator.isGoal(current))
+            {
+
                 return current;
+            }
             successors = current.getSuccessors();
             for (Node successor : successors)
                 if(!closed.contains(successor))
@@ -46,7 +46,6 @@ public class GraphSearch
                     open.add(successor);
                 }
             closed.add(current);
-            depth++;
         }
         return null;
     }

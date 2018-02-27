@@ -2,7 +2,6 @@ package SAT;
 
 import GenericGraphSearch.Node;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -21,7 +20,7 @@ public class SATNode extends Node
         SATNode n1 = new SATNode(this);
         SATNode n2 = new SATNode(this);
         n1.setValue(1);
-        n2.setValue(0);
+        n2.setValue(-1);
         successors.add(n1);
         successors.add(n2);
         return successors;
