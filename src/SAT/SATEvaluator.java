@@ -16,6 +16,7 @@ public class SATEvaluator extends Evaluator {
     private int[][] clauses;
     private int vars, nbrClause;
     private int tauxSat = 0;
+    private int maxSat=0;
 
     public static SATEvaluator loadClausesFromDimacs(String pathToCnfFile) throws IOException {
         SATEvaluator se = new SATEvaluator();
@@ -55,33 +56,33 @@ public class SATEvaluator extends Evaluator {
         if (!nodes.isEmpty()) {
             Boolean SAT = true;
             int i = 0;
+            int cpt = 0;
             int j ;
-            while (i < nbrClause && SAT) {
+            while (i < nbrClause ) {
                 j = 0;
                 boolean SATc = false;
                 while (!SATc && j < nodes.size()) {
                     if (clauses[i][j] * ((SATNode) nodes.get(j)).getValue()>0) {
-                        //System.out.println(i+","+j);
                         SATc = true;
                     } else j++;
                 }
                 if (SATc)
-                    i++;
-                else
-                    SAT = false;
+                    cpt++;
+                i++;
+//                else
+                    SAT = true;
             }
-            if(i>tauxSat)
-            {
-                tauxSat=i;
-                System.out.println("Depth : "+ nodes.size() + "|" + tauxSat);
-            }
-
             if(SAT) {
-                for (j = 0; j < nodes.size(); j++) {
-                    System.out.print(((SATNode) nodes.get(j)).getValue() + " ");
-                }
+//                for (j = 0; j < nodes.size(); j++) {
+//                    System.out.print(((SATNode) nodes.get(j)).getValue() + " ");
+//                }
             }
-            return SAT;
+            if(cpt>maxSat)
+            {
+                maxSat=cpt  ;
+                System.out.println("Depth : "+ nodes.size() + "|" + maxSat);
+            }
+            return false;
         }
         return false;
     }
