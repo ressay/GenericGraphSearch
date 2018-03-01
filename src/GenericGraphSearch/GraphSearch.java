@@ -31,18 +31,20 @@ public class GraphSearch
         while (!open.isEmpty())
         {
             current = open.getNext();
-            if(current.getDepth() > maxDepth) continue;
             if(evaluator.isGoal(current))
             {
-
                 return current;
             }
+            if(current.getDepth() == maxDepth) continue;
             successors = current.getSuccessors();
             for (Node successor : successors)
                 if(!closed.contains(successor))
                 {
+
                     successor.setParent(current);
                     successor.setDepth(current.getDepth()+1);
+                    if(evaluator instanceof CostEvaluator)
+                        ((CostEvaluator) evaluator).evaluateF(successor);
                     open.add(successor);
                 }
             closed.add(current);

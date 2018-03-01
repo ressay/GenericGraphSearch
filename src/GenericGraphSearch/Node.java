@@ -10,6 +10,7 @@ abstract public class Node
 {
     private Node parent = null;
     private int depth = 0;
+    private double g=0,h=0;
 
     public Node(Node parent) {
         this.parent = parent;
@@ -41,4 +42,29 @@ abstract public class Node
     }
 
     public abstract LinkedList<Node> getSuccessors();
+
+    // returns cost function
+    public double getG()
+    {
+        return g;
+    }
+
+    // returns heuristic function
+    public double getH()
+    {
+        return h;
+    }
+
+    public void setG(double g) {
+        this.g = g;
+    }
+
+    public void setH(double h) {
+        this.h = h;
+    }
+
+    public double getGH()
+    {
+        return g+h;
+    }
 }
