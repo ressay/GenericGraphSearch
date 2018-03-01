@@ -10,6 +10,7 @@ import java.util.LinkedList;
 public class SATNode extends Node
 {
     private int value;
+    private int numberOfClausesSatisfied;
     public SATNode(Node parent) {
         super(parent);
     }
@@ -32,5 +33,13 @@ public class SATNode extends Node
 
     private void setValue(int value) {
         this.value = value;
+    }
+
+    public int getNumberOfClausesSatisfied() {
+        return numberOfClausesSatisfied;
+    }
+
+    public void setNumberOfClausesSatisfied(int numberOfClausesSatisfied) {
+        this.numberOfClausesSatisfied = numberOfClausesSatisfied;
     }
 }

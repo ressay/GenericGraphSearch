@@ -1,8 +1,6 @@
 package SAT;
 
-import GenericGraphSearch.Evaluator;
 import GenericGraphSearch.HeuristicEvaluator;
-import GenericGraphSearch.MaximumDepthExceededException;
 import GenericGraphSearch.Node;
 import mainPackage.TextDisplayer;
 
@@ -20,6 +18,7 @@ public class SATEvaluator extends HeuristicEvaluator {
     private int numberOfVariables, numberOfClauses;
     private int tauxSat = 0;
     private int maxSat = 0;
+    private int maxDepth = 0;
 
     public static SATEvaluator loadClausesFromDimacs(String pathToCnfFile) throws IOException {
         SATEvaluator se = new SATEvaluator();
@@ -56,33 +55,30 @@ public class SATEvaluator extends HeuristicEvaluator {
 
     @Override
     public boolean isGoal(Node node) {
-        return false;
+        SATNode satNode = (SATNode) node;
+        int numSatisfied = satNode.getNumberOfClausesSatisfied();
+        if (numSatisfied > maxSat) {
+            maxSat = numSatisfied;
+            TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + "|" + maxSat,
+                    TextDisplayer.MOREINFORMATIONS);
+        }
+        return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();
     }
 
     @Override
     protected void evaluateG(Node node) {
-
         LinkedList<Node> nodes = node.getNodesToRoot();
         nodes.removeLast();
 
-        if (nodes.size() > clauses[0].length) try {
-            throw new MaximumDepthExceededException();
-        } catch (MaximumDepthExceededException e) {
-            e.printStackTrace();
-        }
-
         TextDisplayer.getInstance().showText("nodes size: " + nodes.size(), TextDisplayer.RANDOMCOMMENTS);
-            int numSatisfied = getNumberOfSatisfiedClauses(nodes);
-            if (numSatisfied > maxSat) {
-                maxSat = numSatisfied;
-                TextDisplayer.getInstance().showText("Depth : " + nodes.size() + "|" + maxSat,
-                        TextDisplayer.MOREINFORMATIONS);
-            }
-            node.setG(getNumberOfClauses() - numSatisfied);
-
+        int numSatisfied = getNumberOfSatisfiedClauses(nodes);
+        SATNode satNode = (SATNode)node;
+        satNode.setNumberOfClausesSatisfied(numSatisfied);
+        double ratio = (double)(getNumberOfClauses())/((double)getNumberOfVariables());
+        satNode.setG(((SATNode)node.getParent()).getG()+ratio);
     }
 
-    private int getNumberOfSatisfiedClauses(LinkedList<Node> nodes)
+    public int getNumberOfSatisfiedClauses(LinkedList<Node> nodes)
     {
         int cpt = 0;
         int j;
@@ -98,11 +94,6 @@ public class SATEvaluator extends HeuristicEvaluator {
             }
             if (SATc)
                 cpt++;
-        }
-        if (cpt == getNumberOfClauses()) {
-            for (j = 0; j < nodes.size(); j++) {
-                System.out.print(((SATNode) nodes.get(j)).getValue() + " ");
-            }
         }
         return cpt;
     }
