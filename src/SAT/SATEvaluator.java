@@ -77,7 +77,7 @@ public class SATEvaluator extends HeuristicEvaluator {
         int numSatisfied = satNode.getNumberOfClausesSatisfied();
         if (numSatisfied > maxSat) {
             maxSat = numSatisfied;
-            TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + "|" + maxSat,
+            TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + " ; " + maxSat,
                     TextDisplayer.MOREINFORMATIONS);
         }
         return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();

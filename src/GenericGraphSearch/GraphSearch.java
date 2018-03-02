@@ -46,7 +46,6 @@ public class GraphSearch
             for (Node successor : successors)
                 if(!closed.contains(successor))
                 {
-
                     successor.setParent(current);
                     successor.setDepth(current.getDepth()+1);
                     if(evaluator instanceof HeuristicEvaluator)
