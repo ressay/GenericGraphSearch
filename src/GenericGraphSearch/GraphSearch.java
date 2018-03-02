@@ -12,7 +12,7 @@ public class GraphSearch
     private LinkedList<Node> closed = new LinkedList<>();
     private Evaluator evaluator;
     private int maxDepth = 1000000;
-    private String pathToInputFile;
+    private long startTime;
 
     public GraphSearch(Storage open, Evaluator evaluator) {
         this.open = open;
@@ -24,7 +24,13 @@ public class GraphSearch
         this.evaluator = evaluator;
         this.maxDepth = maxDepth;
     }
-    public Node search(Node start) {
+
+    public Node search(Node start)
+    {
+        return search(start,100000000);
+    }
+    public Node search(Node start, int timeLimit) {
+        setStartTime(System.currentTimeMillis()/1000);
         LinkedList<Node> successors;
         Node current;
         open.add(start);
@@ -43,13 +49,27 @@ public class GraphSearch
 
                     successor.setParent(current);
                     successor.setDepth(current.getDepth()+1);
-                    if(evaluator instanceof CostEvaluator)
-                        ((CostEvaluator) evaluator).evaluateF(successor);
+                    if(evaluator instanceof HeuristicEvaluator)
+                        ((HeuristicEvaluator) evaluator).evaluateF(successor);
                     open.add(successor);
                 }
             closed.add(current);
+            if(getTimeSinceStart() > timeLimit)
+                return null;
         }
         return null;
     }
 
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public long getTimeSinceStart()
+    {
+        return System.currentTimeMillis()/1000 - startTime;
+    }
 }

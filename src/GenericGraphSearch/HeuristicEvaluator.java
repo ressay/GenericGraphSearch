@@ -3,7 +3,7 @@ package GenericGraphSearch;
 /**
  * Created by ressay on 01/03/18.
  */
-abstract public class HeuristicEvaluator extends CostEvaluator
+abstract public class HeuristicEvaluator extends Evaluator
 {
     private HeuristicEstimator estimator = null;
 
@@ -15,18 +15,11 @@ abstract public class HeuristicEvaluator extends CostEvaluator
         this.estimator = estimator;
     }
 
-    private void evaluateH(Node node)
+    public void evaluateF(Node node)
     {
         if(getEstimator() != null)
             getEstimator().estimate(node);
         else
             node.setH(0);
-    }
-
-    @Override
-    public void evaluateF(Node node)
-    {
-        evaluateG(node);
-        evaluateH(node);
     }
 }

@@ -21,8 +21,29 @@ public class SATHeuristicEstimator extends HeuristicEstimator
     @Override
     public double estimate(Node node) {
         SATNode satNode = (SATNode) node;
-        int numSatisfied = satNode.getNumberOfClausesSatisfied();
+        int numSatisfied = estimateBitSet(satNode);
+//        int numSatisfied = estimateMatrix(satNode);
+        satNode.setNumberOfClausesSatisfied(numSatisfied);
+        double ratio = (double)(evaluator.getNumberOfClauses())/((double)evaluator.getNumberOfVariables());
+        int diff2 = evaluator.getNumberOfAppearanceOfNodeDepth(node.getDepth()) - ((SATNode) node).getNumberOfClausesSatisfiedByThisNode();
+        int diff = evaluator.getNumberOfAppearanceOfNode((SATNode) node) - ((SATNode) node).getNumberOfClausesSatisfiedByThisNode();
+        satNode.setG(((SATNode)node.getParent()).getG()+ratio);
+//        satNode.setG(diff2);
         node.setH(evaluator.getNumberOfClauses() - numSatisfied);
         return 0;
+    }
+
+    public int estimateBitSet(SATNode satNode)
+    {
+        satNode.setBitSet(evaluator.getBitSetOf(satNode));
+        satNode.getBitSet().or(((SATNode)satNode.getParent()).getBitSet());
+        return satNode.getBitSet().cardinality();
+    }
+
+    public int estimateMatrix(Node node)
+    {
+        LinkedList<Node> nodes = node.getNodesToRoot();
+        nodes.removeFirst();
+        return evaluator.getNumberOfSatisfiedClauses(nodes);
     }
 }

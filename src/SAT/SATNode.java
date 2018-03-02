@@ -2,6 +2,7 @@ package SAT;
 
 import GenericGraphSearch.Node;
 
+import java.util.BitSet;
 import java.util.LinkedList;
 
 /**
@@ -11,8 +12,11 @@ public class SATNode extends Node
 {
     private int value;
     private int numberOfClausesSatisfied;
+    private BitSet bitSet;
     public SATNode(Node parent) {
         super(parent);
+        bitSet = new BitSet();
+
     }
 
     @Override
@@ -41,5 +45,19 @@ public class SATNode extends Node
 
     public void setNumberOfClausesSatisfied(int numberOfClausesSatisfied) {
         this.numberOfClausesSatisfied = numberOfClausesSatisfied;
+    }
+
+    public int getNumberOfClausesSatisfiedByThisNode()
+    {
+        return getNumberOfClausesSatisfied() - ((SATNode)getParent()).getNumberOfClausesSatisfied();
+    }
+
+    public BitSet getBitSet() {
+        return bitSet;
+    }
+
+    public void setBitSet(BitSet bitSet) {
+        this.bitSet = new BitSet();
+        this.bitSet.or(bitSet);
     }
 }

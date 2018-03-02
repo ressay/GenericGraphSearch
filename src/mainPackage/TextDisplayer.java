@@ -16,7 +16,7 @@ public class TextDisplayer
     public static final int ALLTEXTS = WARNINGS|IMPORTANTCOMMENTS|RANDOMCOMMENTS|MOREINFORMATIONS|ERROR;
 
 
-    private int printMask = ERROR|MOREINFORMATIONS|DEBUGINFOS;
+    private int printMask = ERROR|DEBUGINFOS;
 
     private static TextDisplayer _instance = null;
 

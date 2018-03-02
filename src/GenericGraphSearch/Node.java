@@ -37,7 +37,7 @@ abstract public class Node
         LinkedList<Node> nodes = new LinkedList<>();
         Node node = this;
         for (;node != null;node = node.getParent())
-            nodes.addLast(node);
+            nodes.addFirst(node);
         return nodes;
     }
 
