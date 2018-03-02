@@ -16,19 +16,25 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String file = "test.cnf";
-        String file2 = "uf75-01.cnf";
-        SATNode n = executeSATAStar(file2);
-        int count = 1;
+        for (int i = 1; i < 21; i++) {
+
+            String num = (i<10)?("0"+i):i+"";
+            String file2 = "uf75-"+num+".cnf";
+            System.out.println("file: "+file2);
+            SATNode n = executeSATAStar("UF75.325.100/"+file2);
+            int count = 1;
 
 
-        if (n != null) {
-            LinkedList<Node> nodes = n.getNodesToRoot();
-            nodes.removeFirst();
-            for (Node no : nodes) {
-                System.out.print(((SATNode) no).getValue() * count + " ");
-                count++;
+            if (n != null) {
+                LinkedList<Node> nodes = n.getNodesToRoot();
+                nodes.removeFirst();
+                for (Node no : nodes) {
+                    System.out.print(((SATNode) no).getValue() * count + " ");
+                    count++;
+                }
             }
         }
+
 
 
     }
@@ -39,7 +45,7 @@ public class Main {
         satEvaluator.setEstimator(new SATHeuristicEstimator(satEvaluator));
         GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
         long t1 = System.currentTimeMillis();
-        SATNode n = (SATNode) searcher.search(new SATNode(null),60*1);
+        SATNode n = (SATNode) searcher.search(new SATNode(null),60*2);
         long diff = System.currentTimeMillis() - t1;
         long seconds = diff/1000;
         System.out.println("result found in "+seconds+" is:");

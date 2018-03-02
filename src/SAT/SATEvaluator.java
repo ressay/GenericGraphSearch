@@ -42,6 +42,8 @@ public class SATEvaluator extends HeuristicEvaluator {
         }
         int i = 0;
         while ((line = reader.readLine()) != null) {
+            if(line.length()>0 && line.charAt(0) == ' ')
+                line = line.substring(1);
             String sLine[] = line.split("\\s+");
             for (int j = 0; j < sLine.length - 1; j++) {
                 int i1 = Integer.parseInt(sLine[j]);
