@@ -7,8 +7,10 @@ import mainPackage.TextDisplayer;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * Created by ressay on 24/02/18.
@@ -21,10 +23,10 @@ public class SATEvaluator extends HeuristicEvaluator {
     private int tauxSat = 0;
     private int maxSat = 0;
     private int maxDepth = 0;
+    private int[] map;
 
     public static SATEvaluator loadClausesFromDimacs(String pathToCnfFile) throws IOException {
         SATEvaluator se = new SATEvaluator();
-
         BufferedReader reader = new BufferedReader(new FileReader(pathToCnfFile));
         String line = reader.readLine();
         while (line.charAt(0) != 'p') {
@@ -41,7 +43,7 @@ public class SATEvaluator extends HeuristicEvaluator {
             se.variablesBitSet[1][i] = new BitSet(se.getNumberOfClauses());
         }
         int i = 0;
-        while ((line = reader.readLine()) != null) {
+        while ((line = reader.readLine()) != null && i < se.getNumberOfClauses()) {
             if(line.length()>0 && line.charAt(0) == ' ')
                 line = line.substring(1);
             String sLine[] = line.split("\\s+");
@@ -54,18 +56,33 @@ public class SATEvaluator extends HeuristicEvaluator {
             }
             i++;
         }
-
-//        for (int k = 0; k < se.variablesBitSet[0].length; k++) {
-//            System.out.println("0 " + se.variablesBitSet[0][k]);
-//            System.out.println("appearance: "+se.variableAppearance[0][k] + " "
-//            + se.variablesBitSet[0][k].cardinality());
-//            System.out.println("1 " + se.variablesBitSet[1][k]);
-//            System.out.println("appearance: "+se.variableAppearance[1][k] + " "
-//                    + se.variablesBitSet[1][k].cardinality());
-//        }
-
+        se.generateRandomMap();
         reader.close();
         return se;
+    }
+
+    private void generateRandomMap()
+    {
+        map = new int[getNumberOfVariables()];
+        ArrayList<Integer> ints = new ArrayList<>();
+        for (int i = 0; i < getNumberOfVariables(); i++) {
+            ints.add(i);
+        }
+        for (int i = 0; i < getNumberOfVariables(); i++) {
+            Random random = new Random();
+            int randomInt = random.nextInt(ints.size())%ints.size();
+            map[i] = ints.get(randomInt);
+            ints.remove(randomInt);
+        }
+    }
+
+    private void generateMapByNumberOfAppearance()
+    {
+        map = new int[getNumberOfVariables()];
+
+        for (int i = 0; i < getNumberOfVariables(); i++) {
+            map[i] = getNumberOfAppearanceOfNodeDepth(i+1);
+        }
     }
 
     public int getDepth() {
@@ -94,7 +111,7 @@ public class SATEvaluator extends HeuristicEvaluator {
             j = 0;
             boolean SATc = false;
             for (Node node :  nodes) {
-                if (clauses[i][j] * ((SATNode) node).getValue() > 0) {
+                if (clauses[i][getVarFromDepth(j+1)] * ((SATNode) node).getValue() > 0) {
                     SATc = true;
                     break;
                 }
@@ -125,18 +142,26 @@ public class SATEvaluator extends HeuristicEvaluator {
     public int getNumberOfAppearanceOfNode(SATNode node)
     {
         int index = (node.getValue() == -1)?0:1;
-        return variablesBitSet[index][node.getDepth()-1].cardinality();
+        int var = getVarFromDepth(node.getDepth());
+        return variablesBitSet[index][var].cardinality();
     }
 
     public int getNumberOfAppearanceOfNodeDepth(int depth)
     {
-        return variablesBitSet[0][depth-1].cardinality()+variablesBitSet[1][depth-1].cardinality();
+        int var = getVarFromDepth(depth);
+        return variablesBitSet[0][var].cardinality()+variablesBitSet[1][var].cardinality();
     }
 
     public BitSet getBitSetOf(SATNode node)
     {
         int index = (node.getValue() == -1)?0:1;
-        return variablesBitSet[index][node.getDepth()-1];
+        int var = getVarFromDepth(node.getDepth());
+        return variablesBitSet[index][var];
+    }
+
+    private int getVarFromDepth(int depth)
+    {
+        return map[depth-1];
     }
 
     public int getMaxSat() {
