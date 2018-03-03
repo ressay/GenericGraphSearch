@@ -15,11 +15,23 @@ abstract public class HeuristicEvaluator extends Evaluator
         this.estimator = estimator;
     }
 
-    public void evaluateF(Node node)
+    protected void addingNodePostEvaluation(Node node)
     {
+
+    }
+
+    protected void addingNodePreEvaluation(Node node)
+    {
+
+    }
+
+    void evaluateF(Node node)
+    {
+        addingNodePreEvaluation(node);
         if(getEstimator() != null)
             getEstimator().estimate(node);
         else
             node.setH(0);
+        addingNodePostEvaluation(node);
     }
 }
