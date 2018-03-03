@@ -19,7 +19,7 @@ public class Main {
             String file2 = "uf75-0"+1+".cnf";
             System.out.println("file: "+file2);
 //            SATNode n = executeSATAStar("UF75.325.100/"+file2);
-            SATNode n = executeSATAStar("test.cnf");
+            SATNode n = executeSATDepth("test.cnf");
             int count = 1;
 
 
@@ -27,9 +27,9 @@ public class Main {
                 LinkedList<Node> nodes = n.getNodesToRoot();
                 nodes.removeFirst();
                 for (Node no : nodes) {
-                    System.out.print(((SATNode) no).getValue() * count + " ");
-                    count++;
+                    System.out.print(no + " ");
                 }
+                System.out.println();
             }
         }
 

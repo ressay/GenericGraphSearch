@@ -91,6 +91,13 @@ public class SATEvaluator extends HeuristicEvaluator {
 
 
     @Override
+    protected void addingNodePreEvaluation(Node node)
+    {
+        SATNode satNode = (SATNode) node;
+        satNode.setIndex(map[node.getDepth()-1]);
+    }
+
+    @Override
     public boolean isGoal(Node node) {
         SATNode satNode = (SATNode) node;
         int numSatisfied = satNode.getNumberOfClausesSatisfied();

@@ -13,6 +13,9 @@ public class SATNode extends Node
     private int value;
     private int numberOfClausesSatisfied;
     private BitSet bitSet;
+    private int index;
+
+
     public SATNode(Node parent) {
         super(parent);
         bitSet = new BitSet();
@@ -59,5 +62,18 @@ public class SATNode extends Node
     public void setBitSet(BitSet bitSet) {
         this.bitSet = new BitSet();
         this.bitSet.or(bitSet);
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public String toString()
+    {
+        return ""+getValue()*(getIndex()+1);
     }
 }
