@@ -48,10 +48,10 @@ public class GraphSearch
                 {
                     successor.setParent(current);
                     successor.setDepth(current.getDepth()+1);
-                    long t1 = System.nanoTime();
+//                    long t1 = System.nanoTime();
                     if(evaluator instanceof HeuristicEvaluator)
                         ((HeuristicEvaluator) evaluator).evaluateF(successor);
-                    System.out.println(System.nanoTime()-t1);
+//                    System.out.println(System.nanoTime()-t1);
                     open.add(successor);
                 }
             closed.add(current);

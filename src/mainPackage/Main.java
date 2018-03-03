@@ -3,9 +3,7 @@ package mainPackage;
 import GenericGraphSearch.GraphSearch;
 import GenericGraphSearch.Node;
 import GenericGraphSearch.Storage;
-import SAT.SATEvaluator;
-import SAT.SATHeuristicEstimator;
-import SAT.SATNode;
+import SAT.*;
 import Storages.*;
 
 import java.io.IOException;
@@ -18,10 +16,10 @@ public class Main {
         String file = "test.cnf";
         for (int i = 1; i < 21; i++) {
 
-            String num = (i<10)?("0"+i):i+"";
-            String file2 = "uf75-"+num+".cnf";
+            String file2 = "uf75-0"+1+".cnf";
             System.out.println("file: "+file2);
-            SATNode n = executeSATAStar("UF75.325.100/"+file2);
+//            SATNode n = executeSATAStar("UF75.325.100/"+file2);
+            SATNode n = executeSATAStar("test.cnf");
             int count = 1;
 
 
@@ -45,7 +43,7 @@ public class Main {
         satEvaluator.setEstimator(new SATHeuristicEstimator(satEvaluator));
         GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
         long t1 = System.currentTimeMillis();
-        SATNode n = (SATNode) searcher.search(new SATNode(null),60*2);
+        SATNode n = (SATNode) searcher.search(new SATNode(null),7);
         long diff = System.currentTimeMillis() - t1;
         long seconds = diff/1000;
         System.out.println("result found in "+seconds+" is:");
@@ -62,6 +60,12 @@ public class Main {
     public static SATNode executeSATDepth(String file) throws IOException {
 
         Storage method = new DepthStorage();
+        return executeSAT(file,method);
+    }
+
+    public static SATNode executeSATBreadth(String file) throws IOException {
+
+        Storage method = new BreadthStorage();
         return executeSAT(file,method);
     }
 }
