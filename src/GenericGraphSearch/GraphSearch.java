@@ -44,7 +44,7 @@ public class GraphSearch
             if(current.getDepth() == maxDepth) continue;
             successors = current.getSuccessors();
             for (Node successor : successors)
-                if(!closed.contains(successor))
+//                if(!closed.contains(successor))
                 {
                     successor.setParent(current);
                     successor.setDepth(current.getDepth()+1);
@@ -54,7 +54,7 @@ public class GraphSearch
 //                    System.out.println(System.nanoTime()-t1);
                     open.add(successor);
                 }
-            closed.add(current);
+//            closed.add(current);
             if(getTimeSinceStart() > timeLimit)
                 return null;
         }
