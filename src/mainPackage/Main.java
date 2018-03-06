@@ -16,10 +16,10 @@ public class Main {
         String file = "test.cnf";
         for (int i = 1; i < 21; i++) {
 
-            String file2 = "uf75-0"+1+".cnf";
+            String file2 = "uf75-0"+i+".cnf";
             System.out.println("file: "+file2);
-//            SATNode n = executeSATAStar("UF75.325.100/"+file2);
-            SATNode n = executeSATDepth("test.cnf");
+            SATNode n = executeSATAStar("UF75.325.100/"+file2);
+//            SATNode n = executeSATDepth("test.cnf");
             int count = 1;
 
 
@@ -43,7 +43,7 @@ public class Main {
         satEvaluator.setEstimator(new SATHeuristicEstimator(satEvaluator));
         GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
         long t1 = System.currentTimeMillis();
-        SATNode n = (SATNode) searcher.search(new SATNode(null),7);
+        SATNode n = (SATNode) searcher.search(new SATNode(null),20);
         long diff = System.currentTimeMillis() - t1;
         long seconds = diff/1000;
         System.out.println("result found in "+seconds+" is:");
