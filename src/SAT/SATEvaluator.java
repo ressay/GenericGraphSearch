@@ -25,8 +25,17 @@ public class SATEvaluator extends HeuristicEvaluator {
     private int maxDepth = 0;
     private int[] map;
 
+    public SATEvaluator(int numberOfVariables, int numberOfClauses) {
+        this.numberOfVariables = numberOfVariables;
+        this.numberOfClauses = numberOfClauses;
+        map = new int[getNumberOfVariables()];
+        for (int i = 0; i < getNumberOfVariables(); i++) {
+            map[i] = i;
+        }
+    }
+
     public static SATEvaluator loadClausesFromDimacs(String pathToCnfFile) throws IOException {
-        SATEvaluator se = new SATEvaluator();
+
         BufferedReader reader = new BufferedReader(new FileReader(pathToCnfFile));
         String line = reader.readLine();
         while (line.charAt(0) != 'p') {
@@ -34,8 +43,7 @@ public class SATEvaluator extends HeuristicEvaluator {
         }
 
         String first[] = line.split("\\s+");
-        se.setNumberOfVariables(Integer.parseInt(first[2]));
-        se.setNumberOfClauses(Integer.parseInt(first[3]));
+        SATEvaluator se = new SATEvaluator(Integer.parseInt(first[2]),Integer.parseInt(first[3]));
         se.clauses = new int[se.getNumberOfClauses()][se.getNumberOfVariables()];
         se.variablesBitSet = new BitSet[2][se.getNumberOfVariables()];
         for (int i = 0; i < se.getNumberOfVariables(); i++) {
@@ -56,7 +64,9 @@ public class SATEvaluator extends HeuristicEvaluator {
             }
             i++;
         }
-        se.generateRandomMap();
+//        se.generateRandomMap();
+//        se.generateMapByNumberOfAppearance();
+        se.generateMapByNumberOfAppearanceReversed();
         reader.close();
         return se;
     }
@@ -78,10 +88,40 @@ public class SATEvaluator extends HeuristicEvaluator {
 
     private void generateMapByNumberOfAppearance()
     {
-        map = new int[getNumberOfVariables()];
-
+        int[] appearances = new int[getNumberOfVariables()];
         for (int i = 0; i < getNumberOfVariables(); i++) {
-            map[i] = getNumberOfAppearanceOfNodeDepth(i+1);
+            appearances[i] = getNumberOfAppearanceOfNodeDepth(i+1);
+        }
+        for (int i = 0; i < getNumberOfVariables(); i++) {
+            int max = appearances[i];
+            int maxMap = map[i];
+            int k = i;
+            for (int j = i+1; j < getNumberOfVariables(); j++) {
+                if(appearances[j] > max)
+                {
+                    max = appearances[j];
+                    maxMap = map[j];
+                    k = j;
+                }
+            }
+            appearances[k] = appearances[i];
+            appearances[i] = max;
+            map[k] = map[i];
+            map[i] = maxMap;
+        }
+    }
+
+    private void generateMapByNumberOfAppearanceReversed()
+    {
+        generateMapByNumberOfAppearance();
+        int[] copy = new int[getNumberOfVariables()];
+        int k = getNumberOfVariables()-1;
+        for (int i = 0; i < getNumberOfVariables(); i++) {
+            copy[k--] = map[i];
+        }
+        k=0;
+        for (int i = 0; i < getNumberOfVariables(); i++) {
+            map[i] = copy[k++];
         }
     }
 
