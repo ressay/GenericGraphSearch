@@ -65,7 +65,7 @@ public class SATEvaluator extends HeuristicEvaluator {
         }
 //        se.generateRandomMap();
 //        se.generateMapByNumberOfAppearance();
-       // se.generateMapByNumberOfAppearanceReversed();
+      //  se.generateMapByNumberOfAppearanceReversed();
         se.generateRandomMap();
         reader.close();
         return se;
@@ -143,8 +143,8 @@ public class SATEvaluator extends HeuristicEvaluator {
         int numSatisfied = satNode.getNumberOfClausesSatisfied();
         if (numSatisfied > maxSat) {
             maxSat = numSatisfied;
-            //TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + " ; " + maxSat,
-              //      TextDisplayer.MOREINFORMATIONS);
+           // TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + " ; " + maxSat,
+                    //TextDisplayer.MOREINFORMATIONS);
         }
         return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();
     }
