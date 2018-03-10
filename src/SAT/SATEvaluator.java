@@ -2,6 +2,7 @@ package SAT;
 
 import GenericGraphSearch.HeuristicEvaluator;
 import GenericGraphSearch.Node;
+import mainPackage.TextDisplayer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,13 +17,15 @@ import java.util.Random;
  */
 public class SATEvaluator extends HeuristicEvaluator {
 
-    private int[][] clauses;
-    private BitSet[][] variablesBitSet;
-    private int numberOfVariables, numberOfClauses;
-    private int tauxSat = 0;
-    private int maxSat = 0;
-    private int maxDepth = 0;
-    private int[] map;
+    protected int[][] clauses;
+    protected int[] clausesFrequencies;
+    protected BitSet[][] variablesBitSet;
+    protected int numberOfVariables, numberOfClauses;
+    protected int tauxSat = 0;
+    protected int maxSat = 0;
+    protected int maxDepth = 0;
+    protected int[] map;
+    public long numberOfEvaluation = 0;
 
     public SATEvaluator(int numberOfVariables, int numberOfClauses) {
         this.numberOfVariables = numberOfVariables;
@@ -30,6 +33,10 @@ public class SATEvaluator extends HeuristicEvaluator {
         map = new int[getNumberOfVariables()];
         for (int i = 0; i < getNumberOfVariables(); i++) {
             map[i] = i;
+        }
+        clausesFrequencies = new int[numberOfClauses];
+        for (int i = 0; i < numberOfClauses; i++) {
+            clausesFrequencies[i] = 0;
         }
     }
 
@@ -63,15 +70,14 @@ public class SATEvaluator extends HeuristicEvaluator {
             }
             i++;
         }
-//        se.generateRandomMap();
-//        se.generateMapByNumberOfAppearance();
-      //  se.generateMapByNumberOfAppearanceReversed();
         se.generateRandomMap();
+//        se.generateMapByNumberOfAppearance();
+//        se.generateMapByNumberOfAppearanceReversed();
         reader.close();
         return se;
     }
 
-    private void generateRandomMap()
+    protected void generateRandomMap()
     {
         map = new int[getNumberOfVariables()];
         ArrayList<Integer> ints = new ArrayList<>();
@@ -86,7 +92,7 @@ public class SATEvaluator extends HeuristicEvaluator {
         }
     }
 
-    private void generateMapByNumberOfAppearance()
+    protected void generateMapByNumberOfAppearance()
     {
         int[] appearances = new int[getNumberOfVariables()];
         for (int i = 0; i < getNumberOfVariables(); i++) {
@@ -111,7 +117,7 @@ public class SATEvaluator extends HeuristicEvaluator {
         }
     }
 
-    private void generateMapByNumberOfAppearanceReversed()
+    protected void generateMapByNumberOfAppearanceReversed()
     {
         generateMapByNumberOfAppearance();
         int[] copy = new int[getNumberOfVariables()];
@@ -143,9 +149,11 @@ public class SATEvaluator extends HeuristicEvaluator {
         int numSatisfied = satNode.getNumberOfClausesSatisfied();
         if (numSatisfied > maxSat) {
             maxSat = numSatisfied;
-           // TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + " ; " + maxSat,
-                    //TextDisplayer.MOREINFORMATIONS);
+            TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + "|" + maxSat,
+                    TextDisplayer.MOREINFORMATIONS);
         }
+        numberOfEvaluation++;
+//        updateClausesFrequencies(satNode.getBitSet());
         return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();
     }
 
@@ -214,4 +222,23 @@ public class SATEvaluator extends HeuristicEvaluator {
     public int getMaxSat() {
         return maxSat;
     }
+
+    public void updateClausesFrequencies(BitSet bitset)
+    {
+        for (int i = 0; i < numberOfClauses; i++) {
+            if(bitset.get(i))
+                clausesFrequencies[i]++;
+        }
+    }
+
+    public int[] getClausesFrequencies()
+    {
+        return clausesFrequencies;
+    }
+
+    public int getClauseFrequency(int i)
+    {
+        return clausesFrequencies[i];
+    }
+
 }

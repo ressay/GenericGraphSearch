@@ -60,4 +60,9 @@ public class BarPlotter extends Plotter {
     public void addData(double attempt, double percent) {
         this.dataset.addValue(percent,"Attempt",Integer.toString((int)attempt));
     }
+
+    public void addData(double attempt, double percent,String key) {
+        this.dataset.addValue(percent,key,Integer.toString((int)attempt));
+    }
+
 }

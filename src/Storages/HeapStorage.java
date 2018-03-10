@@ -112,4 +112,11 @@ abstract public class HeapStorage extends Storage
         heap = newHeap;
     }
 
+    public Node[] getHeap() {
+        return heap;
+    }
+
+    public int getCurrentSize() {
+        return currentSize;
+    }
 }

@@ -3,28 +3,32 @@ package SAT;
 import GenericGraphSearch.HeuristicEstimator;
 import GenericGraphSearch.Node;
 
-import java.util.LinkedList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.BitSet;
 
 /**
- * Created by ressay on 02/03/18.
+ * Created by ressay on 09/03/18.
  */
-public class SATHeuristicEstimatorGreedy extends HeuristicEstimator
+public class SATHeuristicDynamic extends HeuristicEstimator
 {
-    SATEvaluator evaluator;
+    SATEvaluatorDynamic evaluator;
 
-    public SATHeuristicEstimatorGreedy(SATEvaluator evaluator) {
+    public SATHeuristicDynamic(SATEvaluatorDynamic evaluator) {
         this.evaluator = evaluator;
     }
+
+
 
     @Override
     public double estimate(Node node) {
         SATNode satNode = (SATNode) node;
         int numSatisfied = estimateBitSet(satNode);
         satNode.setNumberOfClausesSatisfied(numSatisfied);
-        int diff2 = evaluator.getBitSetOf(satNode).cardinality() - ((SATNode) node).getNumberOfClausesSatisfiedByThisNode();
 //        satNode.setG(((SATNode)node.getParent()).getG()+ratio);
-        satNode.setG(((SATNode)node.getParent()).getG()+diff2);
-        node.setH(evaluator.getNumberOfClauses() - numSatisfied);
+        node.setH(evaluator.getEvaluationOfBitset(((SATNode)node).getBitSet()));
+        node.setG(0);
         return 0;
     }
 
@@ -34,5 +38,4 @@ public class SATHeuristicEstimatorGreedy extends HeuristicEstimator
         satNode.getBitSet().or(((SATNode)satNode.getParent()).getBitSet());
         return satNode.getBitSet().cardinality();
     }
-
 }
