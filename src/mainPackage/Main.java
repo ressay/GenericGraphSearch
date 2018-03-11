@@ -30,8 +30,7 @@ public class Main {
             System.out.println("FILE : " + file2 + "\n");
             for (int j = 0; j < 10; j++) {
                 System.out.println("ATTEMPT : " + (j + 1));
-                SATNode n = executeSATAStar("UF75.325.100/" + file2, dataBarPlotter, j+1
-                );
+                SATNode n = executeSATAStar("UF75.325.100/" + file2, dataBarPlotter, j+1);
 //            SATNode n = executeSATDepth("test.cnf");
 
                 if (n != null) {

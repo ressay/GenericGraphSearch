@@ -1,5 +1,7 @@
 package SATUI;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,8 +12,13 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable
@@ -44,11 +51,15 @@ public class Controller implements Initializable
     private Text fileText;
 
     @FXML
-    private TextArea informationsArea;
+    TextArea informationsArea;
+
+    List<File> listOfFiles = null;
 
     LineChart<Number,Number> lineChart;
     XYChart.Series series;
     int i = 13;
+
+    SATToUI toUI = new SATToUI(this);
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -81,12 +92,71 @@ public class Controller implements Initializable
         lineChart.getData().add(series);
         chartAnchor.getChildren().add(lineChart);
 
+        initDigitTextFields();
+        informationsArea.setEditable(false);
 
         runButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                series.getData().add(new XYChart.Data(i, i));
-                i++;
+                try {
+                    toUI.startSolver();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        fileButton.setOnAction(new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent actionEvent) {
+            final FileChooser fileChooser = new FileChooser();
+            listOfFiles =
+                    fileChooser.showOpenMultipleDialog(new Stage());
+            if(listOfFiles != null)
+                if(listOfFiles.size() == 1)
+                    fileText.setText(listOfFiles.get(0).getName());
+                else
+                    fileText.setText(listOfFiles.size()+" files chosen");
+            else
+                fileText.setText("no file selected");
+        }
+    });
+    }
+
+    int getNumberOfAttempts()
+    {
+        if(attemptsField.getText().length() > 0)
+            return Integer.parseInt(attemptsField.getText());
+        return 1;
+    }
+
+    int getTimeLimit()
+    {
+        if(timeField.getText().length() > 0)
+            return Integer.parseInt(timeField.getText());
+        return 5;
+    }
+
+    void initDigitTextFields()
+    {
+        attemptsField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    attemptsField.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
+
+        timeField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    timeField.setText(newValue.replaceAll("[^\\d]", ""));
+                }
             }
         });
     }
