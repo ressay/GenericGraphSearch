@@ -1,11 +1,17 @@
 package SATUI;
 
+import GenericGraphSearch.HeuristicEstimator;
+import GenericGraphSearch.Storage;
+import Storages.AStarStorage;
+import Storages.BreadthStorage;
+import Storages.DepthStorage;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -30,13 +36,28 @@ public class Controller implements Initializable
     private AnchorPane chartAnchor;
 
     @FXML
-    private Button runButton;
+    private AnchorPane anchorAttemptPlot;
 
     @FXML
-    private ChoiceBox<?> methodOptions;
+    private AnchorPane anchorClausesPlot;
 
     @FXML
-    private ProgressBar progress;
+    private Tab clausesTab;
+
+    @FXML
+    private Tab xyTab;
+
+    @FXML
+    private Tab attemptTab;
+
+    @FXML
+    Button runButton;
+
+    @FXML
+    private ChoiceBox<String> methodOptions;
+
+    @FXML
+    ProgressBar progress;
 
     @FXML
     private TextField attemptsField;
@@ -53,10 +74,37 @@ public class Controller implements Initializable
     @FXML
     TextArea informationsArea;
 
+    @FXML
+    private ChoiceBox<String> heuristicOptions;
+
+    @FXML
+    private Text heuristicText;
+
+    @FXML
+    private CheckBox liveCh;
+
+    @FXML
+    private CheckBox attemptCh;
+
+    @FXML
+    private CheckBox xyCh;
+
+    @FXML
+    private CheckBox clausesCh;
+
+
     List<File> listOfFiles = null;
 
-    LineChart<Number,Number> lineChart;
-    XYChart.Series series;
+    LineChart<Number,Number> lineChart = null;
+    XYChart.Series lineSeries = null;
+
+    BarChart<Number,Number> barChartAttempt = null;
+    BarChart.Series barSeriesAttempt = null;
+
+    BarChart<Number,Number> barChartClauses = null;
+    BarChart.Series barSeriesClauses = null;
+
+
     int i = 13;
 
     SATToUI toUI = new SATToUI(this);
@@ -64,45 +112,37 @@ public class Controller implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        //defining the axes
-        final NumberAxis xAxis = new NumberAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Number of Month");
-        //creating the chart
-        lineChart = new LineChart<Number,Number>(xAxis,yAxis);
-
-        lineChart.setTitle("Stock Monitoring, 2010");
-        //defining a series
-        series = new XYChart.Series();
-        series.setName("My portfolio");
-        //populating the series with data
-        series.getData().add(new XYChart.Data(1, 23));
-        series.getData().add(new XYChart.Data(2, 14));
-        series.getData().add(new XYChart.Data(3, 15));
-        series.getData().add(new XYChart.Data(4, 24));
-        series.getData().add(new XYChart.Data(5, 34));
-        series.getData().add(new XYChart.Data(6, 36));
-        series.getData().add(new XYChart.Data(7, 22));
-        series.getData().add(new XYChart.Data(8, 45));
-        series.getData().add(new XYChart.Data(9, 43));
-        series.getData().add(new XYChart.Data(10, 17));
-        series.getData().add(new XYChart.Data(11, 29));
-        series.getData().add(new XYChart.Data(12, 25));
-
-        lineChart.getData().add(series);
-        chartAnchor.getChildren().add(lineChart);
-
+        initCheckBoxes();
         initDigitTextFields();
+        initCharts();
         informationsArea.setEditable(false);
+
+        heuristicOptions.getItems().addAll(toUI.heuristics);
+        heuristicOptions.getSelectionModel().select(0);
+
+        methodOptions.getItems().addAll("Depth search","Breadth search","Heuristic search");
+        methodOptions.getSelectionModel().select(0);
+        methodOptions.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if(methodOptions.getSelectionModel().isSelected(2))
+                {
+                    heuristicOptions.setVisible(true);
+                    heuristicText.setVisible(true);
+                }
+                else
+                {
+                    heuristicOptions.setVisible(false);
+                    heuristicText.setVisible(false);
+                }
+            }
+        });
 
         runButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                try {
-                    toUI.startSolver();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                restartPlots();
+                    toUI.runSolver();
             }
         });
 
@@ -123,6 +163,13 @@ public class Controller implements Initializable
     });
     }
 
+    void restartPlots()
+    {
+        lineSeries.getData().clear();
+//        barSeriesClauses.getData().clear();
+//        barSeriesAttempt.getData().clear();
+    }
+
     int getNumberOfAttempts()
     {
         if(attemptsField.getText().length() > 0)
@@ -135,6 +182,38 @@ public class Controller implements Initializable
         if(timeField.getText().length() > 0)
             return Integer.parseInt(timeField.getText());
         return 5;
+    }
+
+    void initCheckBoxes()
+    {
+        clausesTab.setDisable(true);
+        xyTab.setDisable(true);
+        attemptTab.setDisable(true);
+        clausesCh.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                clausesTab.setDisable(!clausesCh.isSelected());
+            }
+        });
+
+        xyCh.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                xyTab.setDisable(!xyCh.isSelected());
+            }
+        });
+
+        attemptCh.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                attemptTab.setDisable(!attemptCh.isSelected());
+            }
+        });
+    }
+
+    boolean isLive()
+    {
+        return liveCh.isSelected();
     }
 
     void initDigitTextFields()
@@ -160,4 +239,50 @@ public class Controller implements Initializable
             }
         });
     }
+
+
+    void initCharts()
+    {
+        initLineChart();
+    }
+
+    public void initLineChart()
+    {
+        if(lineChart == null)
+        {
+            //defining the axes
+            final NumberAxis xAxis = new NumberAxis();
+            final NumberAxis yAxis = new NumberAxis();
+            xAxis.setLabel("time");
+            yAxis.setLabel("max number of clauses satisfied");
+            //creating the chart
+            lineChart = new LineChart<Number,Number>(xAxis,yAxis);
+            lineChart.setTitle("Clauses satisfied");
+            //defining a series
+            lineSeries = new XYChart.Series();
+            //populating the series with data
+
+            lineChart.getData().add(lineSeries);
+            chartAnchor.getChildren().add(lineChart);
+        }
+        else
+            lineSeries.getData().clear();
+    }
+
+    public void addLineData(Number x, Number y)
+    {
+        System.out.println("is updating");
+        lineSeries.getData().add(new XYChart.Data(x, y));
+    }
+
+    public String getMethod()
+    {
+        return methodOptions.getValue();
+    }
+
+    public String getHeuristic()
+    {
+        return heuristicOptions.getValue();
+    }
+
 }

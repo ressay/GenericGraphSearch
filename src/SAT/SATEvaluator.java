@@ -2,6 +2,7 @@ package SAT;
 
 import GenericGraphSearch.HeuristicEvaluator;
 import GenericGraphSearch.Node;
+import SATUI.Updatable;
 import mainPackage.TextDisplayer;
 
 import java.io.BufferedReader;
@@ -26,6 +27,7 @@ public class SATEvaluator extends HeuristicEvaluator {
     protected int maxDepth = 0;
     protected int[] map;
     public long numberOfEvaluation = 0;
+    public Updatable updatable = null;
 
     public SATEvaluator(int numberOfVariables, int numberOfClauses) {
         this.numberOfVariables = numberOfVariables;
@@ -114,6 +116,7 @@ public class SATEvaluator extends HeuristicEvaluator {
             appearances[i] = max;
             map[k] = map[i];
             map[i] = maxMap;
+
         }
     }
 
@@ -153,6 +156,8 @@ public class SATEvaluator extends HeuristicEvaluator {
                     TextDisplayer.MOREINFORMATIONS);
         }
         numberOfEvaluation++;
+        if(updatable != null)
+            updatable.update(satNode);
 //        updateClausesFrequencies(satNode.getBitSet());
         return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();
     }
