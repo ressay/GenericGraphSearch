@@ -11,10 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.BarChart;
+import javafx.scene.chart.*;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -24,7 +22,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable
@@ -97,15 +97,18 @@ public class Controller implements Initializable
 
     LineChart<Number,Number> lineChart = null;
     XYChart.Series lineSeries = null;
+    ArrayList<Number> lineXValues = new ArrayList<>();
+    ArrayList<Number> lineYValues = new ArrayList<>();
 
-    BarChart<Number,Number> barChartAttempt = null;
+    BarChart<String,Number> barChartAttempt = null;
     BarChart.Series barSeriesAttempt = null;
+    ArrayList<String> attemptXValues = new ArrayList<>();
+    ArrayList<Number> attemptYValues = new ArrayList<>();
 
-    BarChart<Number,Number> barChartClauses = null;
+    BarChart<String,Number> barChartClauses = null;
     BarChart.Series barSeriesClauses = null;
-
-
-    int i = 13;
+    ArrayList<String> clausesXValues = new ArrayList<>();
+    ArrayList<Number> clausesYValues = new ArrayList<>();
 
     SATToUI toUI = new SATToUI(this);
 
@@ -122,33 +125,25 @@ public class Controller implements Initializable
 
         methodOptions.getItems().addAll("Depth search","Breadth search","Heuristic search");
         methodOptions.getSelectionModel().select(0);
-        methodOptions.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if(methodOptions.getSelectionModel().isSelected(2))
-                {
-                    heuristicOptions.setVisible(true);
-                    heuristicText.setVisible(true);
-                }
-                else
-                {
-                    heuristicOptions.setVisible(false);
-                    heuristicText.setVisible(false);
-                }
+        methodOptions.setOnAction(actionEvent -> {
+            if(methodOptions.getSelectionModel().isSelected(2))
+            {
+                heuristicOptions.setVisible(true);
+                heuristicText.setVisible(true);
+            }
+            else
+            {
+                heuristicOptions.setVisible(false);
+                heuristicText.setVisible(false);
             }
         });
 
-        runButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                restartPlots();
-                    toUI.runSolver();
-            }
+        runButton.setOnAction(actionEvent -> {
+            restartPlots();
+                toUI.runSolver();
         });
 
-        fileButton.setOnAction(new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent actionEvent) {
+        fileButton.setOnAction(actionEvent -> {
             final FileChooser fileChooser = new FileChooser();
             listOfFiles =
                     fileChooser.showOpenMultipleDialog(new Stage());
@@ -159,8 +154,7 @@ public class Controller implements Initializable
                     fileText.setText(listOfFiles.size()+" files chosen");
             else
                 fileText.setText("no file selected");
-        }
-    });
+        });
     }
 
     void restartPlots()
@@ -189,19 +183,9 @@ public class Controller implements Initializable
         clausesTab.setDisable(true);
         xyTab.setDisable(true);
         attemptTab.setDisable(true);
-        clausesCh.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                clausesTab.setDisable(!clausesCh.isSelected());
-            }
-        });
+        clausesCh.setOnAction(actionEvent -> clausesTab.setDisable(!clausesCh.isSelected()));
 
-        xyCh.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                xyTab.setDisable(!xyCh.isSelected());
-            }
-        });
+        xyCh.setOnAction(actionEvent -> xyTab.setDisable(!xyCh.isSelected()));
 
         attemptCh.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -218,24 +202,16 @@ public class Controller implements Initializable
 
     void initDigitTextFields()
     {
-        attemptsField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    attemptsField.setText(newValue.replaceAll("[^\\d]", ""));
-                }
+        attemptsField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                attemptsField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
 
 
-        timeField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    timeField.setText(newValue.replaceAll("[^\\d]", ""));
-                }
+        timeField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                timeField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
     }
@@ -244,6 +220,8 @@ public class Controller implements Initializable
     void initCharts()
     {
         initLineChart();
+        initAttemptChart();
+        initClausesChart();
     }
 
     public void initLineChart()
@@ -256,7 +234,7 @@ public class Controller implements Initializable
             xAxis.setLabel("time");
             yAxis.setLabel("max number of clauses satisfied");
             //creating the chart
-            lineChart = new LineChart<Number,Number>(xAxis,yAxis);
+            lineChart = new LineChart<>(xAxis, yAxis);
             lineChart.setTitle("Clauses satisfied");
             //defining a series
             lineSeries = new XYChart.Series();
@@ -267,12 +245,116 @@ public class Controller implements Initializable
         }
         else
             lineSeries.getData().clear();
+        lineXValues.clear();
+        lineYValues.clear();
     }
 
     public void addLineData(Number x, Number y)
     {
-        System.out.println("is updating");
         lineSeries.getData().add(new XYChart.Data(x, y));
+    }
+
+
+    public void keepLineData(Number x,Number y)
+    {
+        lineXValues.add(x);
+        lineYValues.add(y);
+    }
+
+    public void showLineKeptData()
+    {
+        for (int j = 0; j < lineXValues.size(); j++) {
+            addLineData(lineXValues.get(j),lineYValues.get(j));
+        }
+    }
+
+    public void initAttemptChart()
+    {
+        if(barChartAttempt == null)
+        {
+            //defining the axes
+            final CategoryAxis xAxis = new CategoryAxis();
+            final NumberAxis yAxis = new NumberAxis();
+            xAxis.setLabel("Attemps");
+            yAxis.setLabel("Number of clauses satisfied");
+            //creating the chart
+            barChartAttempt = new BarChart<String,Number>(xAxis, yAxis);
+            barChartAttempt.setTitle("Clauses satisfied per attempt");
+            //defining a series
+            barSeriesAttempt = new BarChart.Series();
+            //populating the series with data
+
+            barChartAttempt.getData().add(barSeriesAttempt);
+            anchorAttemptPlot.getChildren().add(barChartAttempt);
+        }
+        else
+            barSeriesAttempt.getData().clear();
+        attemptXValues.clear();
+        attemptYValues.clear();
+    }
+
+    public void addAttemptData(String x, Number y)
+    {
+        barSeriesAttempt.getData().add(new BarChart.Data(x, y));
+    }
+
+
+    public void keepAttemptData(String x,Number y)
+    {
+        attemptXValues.add(x);
+        attemptYValues.add(y);
+    }
+
+    public void showAttemptKeptData()
+    {
+        for (int j = 0; j < attemptXValues.size(); j++) {
+            addAttemptData(attemptXValues.get(j),attemptYValues.get(j));
+        }
+    }
+
+
+    public void initClausesChart()
+    {
+        if(barChartClauses == null)
+        {
+
+            final CategoryAxis xAxis = new CategoryAxis();
+            final NumberAxis yAxis = new NumberAxis();
+            xAxis.setLabel("Clauses");
+            yAxis.setLabel("satisfaction frequency");
+
+            barChartClauses = new BarChart<>(xAxis, yAxis);
+            barChartClauses.setTitle("Clauses satisfaction frequency");
+
+            barSeriesClauses = new BarChart.Series();
+
+            barChartClauses.getData().add(barSeriesClauses);
+            anchorClausesPlot.getChildren().add(barChartClauses);
+        }
+        else
+            barSeriesClauses.getData().clear();
+        clausesXValues.clear();
+        clausesYValues.clear();
+        System.out.println("done!!");
+    }
+
+    public void addClauseData(String x, Number y)
+    {
+        barSeriesClauses.getData().add(new BarChart.Data(x, y));
+    }
+
+
+    public void keepClauseData(String x,Number y)
+    {
+        clausesXValues.add(x);
+        clausesYValues.add(y);
+    }
+
+    public void showClauseKeptData()
+    {
+        for (int j = 0; j < clausesXValues.size(); j++) {
+            addClauseData(clausesXValues.get(j),clausesYValues.get(j));
+        }
     }
 
     public String getMethod()

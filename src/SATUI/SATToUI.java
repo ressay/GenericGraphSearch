@@ -31,8 +31,7 @@ public class SATToUI implements Updatable
     String headOutPut;
     String solution = "";
     private long startTime;
-    private long timeLimit = 500;
-    private boolean isSolving = false;
+    private long timeLimit = 800;
     SATNode satNode = null;
     long progTime = 0;
 
@@ -55,15 +54,13 @@ public class SATToUI implements Updatable
         }
 
         controller.runButton.setDisable(true);
-        isSolving = true;
         startThreadSolver();
-        System.out.println("out");
         controller.runButton.setDisable(false);
     }
 
     public void startThreadSolver()
     {
-        System.out.println("yeah");
+        controller.initAttemptChart();
         new Thread(() -> {
             try {
                 startSolver();
@@ -71,12 +68,10 @@ public class SATToUI implements Updatable
                 e.printStackTrace();
             }
         }).start();
-        System.out.println("done");
     }
 
 
     public void startSolver() throws IOException {
-        isSolving = true;
         controller.informationsArea.clear();
         for(File file : controller.listOfFiles)
         {
@@ -84,7 +79,9 @@ public class SATToUI implements Updatable
                 setStartTime(System.currentTimeMillis());
                 progTime = 0;
                 controller.progress.setProgress(0);
-                controller.initLineChart();
+                Platform.runLater(() -> controller.initLineChart());
+                Platform.runLater(() -> controller.addLineData(0,0));
+                Platform.runLater(() -> controller.initClausesChart());
                 headOutPut = "FILE : " + file.getName() + "\n";
                 headOutPut = "ATTEMPT : " + (i + 1) + "\n";
                 SATNode n = executeMethod(file,i+1);
@@ -103,11 +100,18 @@ public class SATToUI implements Updatable
                 controller.informationsArea.appendText(headOutPut);
                 controller.informationsArea.appendText(output);
                 controller.informationsArea.appendText(solution);
+                Platform.runLater(() -> controller.progress.setProgress(1));
+                Platform.runLater(() -> drawClausesFrequencies(satEvaluator.getClausesFrequencies()));
+                final int attempt = i;
+                Platform.runLater(() -> controller.addAttemptData(""+attempt,satEvaluator.getMaxSat()));
+                if(!controller.isLive()) {
+
+                    Platform.runLater(() -> controller.showLineKeptData());
+                }
 
             }
 
         }
-        isSolving = false;
     }
 
     public SATNode executeSAT(File file, Storage method, int attempt) throws IOException {
@@ -129,7 +133,7 @@ public class SATToUI implements Updatable
 
             output += "SATISFIED " + maxNumberOfClausesSatisfied + "/" + numberOfClause +
                     "  (" + percent + "%) \n\n";
-//            drawClausesFrequencies(satEvaluator.getClausesFrequencies());
+//
 
         }
         return n;
@@ -148,10 +152,9 @@ public class SATToUI implements Updatable
         avg = 100 * avg / maxFrequencies/4;
         Arrays.sort(frequencies);
         int cpt = 0;
-        BarPlotter dataBarPlotter = new BarPlotter("frequencies","clauses","frequency percentage");
         for (int i = 0; i < frequencies.length; i++) {
             double percent = (double) 100 * frequencies[i] / maxFrequencies;
-
+            controller.addClauseData(i+"",percent);
         }
         System.out.println("average is : "+avg);
         System.out.println("number of clauses frequency under the average is: " + cpt);
@@ -205,22 +208,18 @@ public class SATToUI implements Updatable
         satNode = node;
         satEvaluator.updateClausesFrequencies(satNode.getBitSet());
         if(getTimeSinceStart() > timeLimit) {
+            double prog = (double) progTime / (double) controller.getTimeLimit()/1000;
+            Platform.runLater(() -> controller.progress.setProgress(prog));
             progTime += getTimeSinceStart();
             setStartTime(System.currentTimeMillis());
-            Platform.runLater(() -> {
-
-                double prog = (double) progTime / (double) controller.getTimeLimit()/1000;
-                System.out.println("updating!! "+prog );
-                controller.progress.setProgress(prog);
-                innerUpdate();
-            });
+            controller.keepLineData(progTime/timeLimit,satEvaluator.getMaxSat());
+            Platform.runLater(this::innerUpdate);
         }
     }
 
     public void innerUpdate()
     {
         if(controller.isLive()) {
-//            if(getTimeSinceStart() > timeLimit)
             {
                 updateXYChart();
             }
