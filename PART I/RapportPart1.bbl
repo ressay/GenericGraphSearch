@@ -1,0 +1,12 @@
+\begin{thebibliography}{1}
+
+\bibitem{cook}
+Stephen~A. Cook.
+\newblock {\em The Complexity of Theorem-proving Procedures}.
+\newblock 1971.
+
+\bibitem{Benchmark}
+\textbf{SATLIB} - benchmark for \textbf{SAT} problems.
+\newblock \url{http://www.cs.ubc.ca/~hoos/SATLIB/benchm.html}.
+
+\end{thebibliography}
