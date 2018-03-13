@@ -102,7 +102,7 @@ public class SATToUI implements Updatable
                 controller.informationsArea.appendText(solution);
                 Platform.runLater(() -> controller.progress.setProgress(1));
                 Platform.runLater(() -> drawClausesFrequencies(satEvaluator.getClausesFrequencies()));
-                final int attempt = i;
+                final int attempt = i+1;
                 Platform.runLater(() -> controller.addAttemptData(""+attempt,satEvaluator.getMaxSat()));
                 if(!controller.isLive()) {
 
