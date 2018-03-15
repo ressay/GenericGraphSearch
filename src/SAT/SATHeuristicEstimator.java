@@ -24,10 +24,10 @@ public class SATHeuristicEstimator extends HeuristicEstimator
         int numSatisfied = estimateBitSet(satNode);
         satNode.setNumberOfClausesSatisfied(numSatisfied);
 //        double ratio = (double)(evaluator.getNumberOfClauses())/((double)evaluator.getNumberOfVariables());
-//        int diff = evaluator.getNumberOfAppearanceOfNode((SATNode) node) - ((SATNode) node).getNumberOfClausesSatisfiedByThisNode();
-//        satNode.setG(((SATNode)node.getParent()).getG()+ratio);
+        int diff = evaluator.getNumberOfAppearanceOfNode((SATNode) node);
+        satNode.setG(((SATNode)node.getParent()).getG()+diff);
 //        satNode.setG(((SATNode)node.getParent()).getG()+diff/evaluator.getNumberOfVariables());
-        node.setH(evaluator.getNumberOfClauses() - numSatisfied);
+//        node.setH(evaluator.getNumberOfClauses() - numSatisfied);
         return 0;
     }
 

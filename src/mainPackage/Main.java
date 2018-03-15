@@ -47,7 +47,34 @@ public class Main {
 
     }
 
+
     public static SATNode executeSAT(String file, Storage method, Plotter dataBarPlotter, int attempt) throws IOException {
+
+        SATEvaluator satEvaluator = SATEvaluator.loadClausesFromDimacs(file);
+        satEvaluator.setEstimator(new SATHeuristicEstimator(satEvaluator));
+        GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
+        long t1 = System.currentTimeMillis();
+        SATNode n = (SATNode) searcher.search(new SATNode(null), 5);
+        long diff = System.currentTimeMillis() - t1;
+        long seconds = diff / 1000;
+        System.out.println("RESULT FOUND IN " + seconds+ " AFTER "
+                + satEvaluator.numberOfEvaluation + " EVALUATIONS IS:");
+        if (n == null) {
+            int maxNumberOfClausesSatisfied = satEvaluator.getMaxSat();
+            int numberOfClause = satEvaluator.getNumberOfClauses();
+            double percent = (double) 100 * maxNumberOfClausesSatisfied / numberOfClause;
+            if(dataBarPlotter != null)
+                dataBarPlotter.addData(attempt, percent);
+            System.out.println("SATISFIED " + maxNumberOfClausesSatisfied + "/" + numberOfClause +
+                    "  (" + percent + "%) \n");
+//            drawClausesFrequencies(satEvaluator.getClausesFrequencies());
+
+        }
+        return n;
+    }
+
+
+    public static SATNode executeSATDynamic(String file, Storage method, Plotter dataBarPlotter, int attempt) throws IOException {
 
         SATEvaluatorDynamic satEvaluator = SATEvaluatorDynamic.loadClausesFromDimacsD(file);
         satEvaluator.setHeapStorage((HeapStorage)method);

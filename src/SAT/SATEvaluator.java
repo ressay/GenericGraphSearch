@@ -72,9 +72,9 @@ public class SATEvaluator extends HeuristicEvaluator {
             }
             i++;
         }
-        se.generateRandomMap();
+//        se.generateRandomMap();
 //        se.generateMapByNumberOfAppearance();
-//        se.generateMapByNumberOfAppearanceReversed();
+        se.generateMapByNumberOfAppearanceReversed();
         reader.close();
         return se;
     }
