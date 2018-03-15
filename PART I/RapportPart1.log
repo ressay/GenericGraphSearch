@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.18)  15 MAR 2018 19:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.3)  15 MAR 2018 21:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **RapportPart1.tex
 (./RapportPart1.tex
 LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -946,7 +946,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-<Page_garde.pdf, id=100, 597.50829pt x 845.0471pt>
+<Page_garde.pdf, id=108, 597.50829pt x 845.0471pt>
 File: Page_garde.pdf Graphic file (type pdf)
  <use Page_garde.pdf>
 Package pdftex.def Info: Page_garde.pdf used on input line 51.
@@ -957,7 +957,7 @@ File: Page_garde.pdf Graphic file (type pdf)
 Package pdftex.def Info: Page_garde.pdf used on input line 51.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<Page_garde.pdf, id=103, page=1, 597.50829pt x 845.0471pt>
+<Page_garde.pdf, id=111, page=1, 597.50829pt x 845.0471pt>
 File: Page_garde.pdf Graphic file (type pdf)
 
 <use Page_garde.pdf, page 1>
@@ -995,67 +995,99 @@ been already used, duplicate ignored
 l.55 \newpage
               [1
 
-]
+] (./chapter1.tex
 Chapitre 1.
 [2
 
 ] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+bch on input line 87.
+LaTeX Font Info:    Try loading font information for OMS+bch on input line 32.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
 File: omsbch.fd 
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
- [5]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+) [5] (./chapter2.tex
 Chapitre 2.
 
-Overfull \hbox (4.49945pt too wide) in paragraph at lines 98--99
+Overfull \hbox (4.49945pt too wide) in paragraph at lines 5--6
 []\T1/bch/m/n/12 Une ins-tance du pro-blème SAT peut être consi-dé-rée comme un
  en-semble de clauses,
  []
 
 
-Overfull \hbox (18.05899pt too wide) in paragraph at lines 118--118
+Overfull \hbox (18.05899pt too wide) in paragraph at lines 25--25
 [][] 
  []
 
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 123--148
+Underfull \hbox (badness 10000) in paragraph at lines 30--55
 
  []
 
-[7]
+) [7] (./chapter3.tex
 Chapitre 3.
+
+Overfull \hbox (1.09265pt too wide) in paragraph at lines 5--6
+ [][] \T1/bch/m/n/12 Les ins-tances nous sont pré-senté sous forme de fi-chiers
+ au for-mat \T1/bch/b/n/12 DI-MACS[][][][][]\T1/bch/m/n/12 (plus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--18
+
+ []
+
 [8
 
-] <images/machineWISS.png, id=224, 474.77374pt x 314.17375pt>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+
+ []
+
+<images/machineWISS.png, id=241, 474.77374pt x 314.17375pt>
 File: images/machineWISS.png Graphic file (type png)
 
 <use images/machineWISS.png>
-Package pdftex.def Info: images/machineWISS.png used on input line 168.
+Package pdftex.def Info: images/machineWISS.png used on input line 41.
 (pdftex.def)             Requested size: 356.07944pt x 235.62973pt.
 
-<images/machineYASSER.png, id=226, 533.995pt x 367.3725pt>
+<images/machineYASSER.png, id=243, 533.995pt x 367.3725pt>
 File: images/machineYASSER.png Graphic file (type png)
 
 <use images/machineYASSER.png>
-Package pdftex.def Info: images/machineYASSER.png used on input line 174.
+Package pdftex.def Info: images/machineYASSER.png used on input line 47.
 (pdftex.def)             Requested size: 355.10222pt x 244.29962pt.
- [9 <./images/machineWISS.png> <./images/machineYASSER.png>] [10]
+ [9] [10 <./images/machineWISS.png> <./images/machineYASSER.png>]) [11] (./chap
+ter4.tex
 Chapitre 4.
-[11
+) [12
 
 ] (./RapportPart1.lof)
 \tf@lof=\write5
 \openout5 = `RapportPart1.lof'.
 
- (./RapportPart1.bbl [12
+ (./RapportPart1.bbl [13
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
@@ -1063,42 +1095,43 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
- [13
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 66.
+ [14
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
 
 (./RapportPart1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 66.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 66.
 Package rerunfilecheck Info: File `RapportPart1.out' has not changed.
-(rerunfilecheck)             Checksum: E15BA1EE372AD29BF6774384ADF2BD51;1658.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
+(rerunfilecheck)             Checksum: 95C030AE4017B0150946AF2A103AC0BC;1795.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 66.
  ) 
 Here is how much of TeX's memory you used:
- 13204 strings out of 493029
- 193735 string characters out of 6136233
- 346008 words of memory out of 5000000
- 16454 multiletter control sequences out of 15000+600000
+ 13233 strings out of 494924
+ 194088 string characters out of 6179709
+ 341264 words of memory out of 5000000
+ 16220 multiletter control sequences out of 15000+600000
  61519 words of font info for 61 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 41i,18n,43p,840b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/t
-ype1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bit
-strea/charter/bchbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/c
-harter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/b
-chri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on RapportPart1.pdf (14 pages, 250492 bytes).
+ 14 hyphenation exceptions out of 8191
+ 41i,18n,43p,861b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/wiss/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk>{/usr/shar
+e/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist
+/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/bitstrea/charter/bchbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bi
+tstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/c
+harter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
+12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
+Output written on RapportPart1.pdf (15 pages, 253199 bytes).
 PDF statistics:
- 322 PDF objects out of 1000 (max. 8388607)
- 282 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 223 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 381 PDF objects out of 1000 (max. 8388607)
+ 314 compressed objects within 4 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
