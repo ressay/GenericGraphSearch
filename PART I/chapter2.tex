@@ -1,0 +1,64 @@
+\chapter{Implémentation}
+\section{Structures de données}
+La stratégie de recherche avec graphe requiert une représentation des entrées du problème, des états construisant une solution potentielle à ce dernier ainsi que le développement de ces états.
+\subsection{Représentation du problème SAT}
+Une instance du problème SAT peut être considérée comme un ensemble de clauses, chacune de ces clauses est une disjonction de littéraux. Dans ce rapport Nous proposons deux structures différentes pour les représenter que nous comparerons par la suite.
+\subsubsection{Représentation matricielle}
+Une première représentation serait d‘associer à chaque clause de l’instance un tableau de taille égale au nombre de variables logiques utilisés dont la i\up{ième}  case aura la valeur 1 si la variable \textit{i} est présente dans la clause, -1 si sa négation est présente, 0 sinon. Ainsi en représentant toutes les clauses on obtient une matrice dont chaque ligne est associée à une clause.\\
+L’exemple suivant montre une instance du problème SAT et sa représentation matricielle:
+\begin{flalign*}
+x_{1} \lor \neg x_{2} \lor x_{5} \\
+\neg x_{2} \lor x_{4} \lor x_{5} \\
+\neg x_{1} \lor x_{2} \lor \neg x_{3}
+\end{flalign*}
+ces clauses vont être représentée comme suit:
+\begin{center}
+	\parbox{.2\textwidth}{
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			1&-1&0&0&1\\
+			\hline
+			0&-1&0&1&1\\
+			\hline
+			-1&1&1&0&0\\
+			\hline
+		\end{tabular}}
+\end{center}
+\newpage
+
+\subsubsection{Représentation par \textit{Bitset}}
+On pourrait aussi aborder la représentation du point de vu littéral, c’est à dire associer pour chaque littéral les clauses dans lesquels il est présent. Pour cela un tableau de bits appelé \textit{Bitset} pourrait être utilisé où chaque bit \textit{i} aurait la valeur 1 si la i\up{ième} clause contient le littéral, la valeur 0 sinon. On obtient donc un tableau de taille 2 fois le nombre de variables utilisés dont les entrés représentent les \textit{Bitsets} des littéraux.\\
+Pour le même exemple vu précédemment on obtient les \textit{Bitsets} suivants:\\\\
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{|c | c| c| c|}
+			\hline
+			$x_{1}$& 1 & 0 & 0 \\\hline
+			$x_{2}$& 0 & 0 & 0 \\\hline
+			$x_{3}$& 0 & 0 & 0 \\\hline
+			$x_{4}$& 0 & 1 & 0 \\\hline
+			$x_{5}$& 1 & 1 & 0 \\\hline
+		\end{tabular}
+	\end{minipage}
+	\hfillx
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{|c | c| c| c|}
+			\hline
+			$\neg x_{1}$& 0 & 0 & 1 \\\hline
+			$\neg x_{2}$& 1 & 1 & 0 \\\hline
+			$\neg x_{3}$& 0 & 0 & 1 \\\hline
+			$\neg x_{4}$& 0 & 0 & 0 \\\hline
+			$\neg x_{5}$& 0 & 0 & 0 \\\hline
+		\end{tabular}
+	\end{minipage}
+
+
+\section{Conception et pseudo-code}
+\subsection{Profondeur d'abord}
+\subsection{Largeur d'abord}
+\subsection{Recherche gloutonne }
+\subsection{Algorithme A*}
+
+
+
