@@ -31,21 +31,21 @@
 \contentsline {paragraph}{}{8}{section*.14}
 \contentsline {paragraph}{}{8}{section*.15}
 \contentsline {subsection}{\numberline {3.1.1}Format DIMACS}{8}{subsection.3.1.1}
-\contentsline {paragraph}{Explications :}{9}{section*.16}
-\contentsline {subsection}{\numberline {3.1.2}Type d'instances}{9}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Environement de travail}{9}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Machines}{9}{subsection.3.2.1}
-\contentsline {paragraph}{}{9}{section*.17}
-\contentsline {subsection}{\numberline {3.2.2}Outils utilis\IeC {\'e}s}{11}{subsection.3.2.2}
-\contentsline {subsubsection}{Langage de programmation : }{11}{section*.20}
-\contentsline {paragraph}{}{11}{section*.21}
-\contentsline {subsubsection}{IDE : }{11}{section*.22}
-\contentsline {paragraph}{}{11}{section*.23}
-\contentsline {paragraph}{IntelliJ Idea}{11}{section*.24}
-\contentsline {section}{\numberline {3.3}R\IeC {\'e}sultats}{11}{section.3.3}
-\contentsline {paragraph}{}{11}{section*.25}
-\contentsline {section}{\numberline {3.4}Statistiques}{11}{section.3.4}
-\contentsline {paragraph}{}{11}{section*.26}
-\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{11}{section.3.5}
-\contentsline {paragraph}{}{11}{section*.27}
-\contentsline {chapter}{\numberline {4}Conclusion}{12}{chapter.4}
+\contentsline {subsection}{\numberline {3.1.2}Example}{9}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Type d'instances}{10}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Environement de travail}{10}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Machines}{10}{subsection.3.2.1}
+\contentsline {paragraph}{}{10}{section*.16}
+\contentsline {subsection}{\numberline {3.2.2}Outils utilis\IeC {\'e}s}{12}{subsection.3.2.2}
+\contentsline {subsubsection}{Langage de programmation : }{12}{section*.19}
+\contentsline {paragraph}{}{12}{section*.20}
+\contentsline {subsubsection}{IDE : }{12}{section*.21}
+\contentsline {paragraph}{}{12}{section*.22}
+\contentsline {paragraph}{IntelliJ Idea}{12}{section*.23}
+\contentsline {section}{\numberline {3.3}R\IeC {\'e}sultats}{12}{section.3.3}
+\contentsline {paragraph}{}{12}{section*.24}
+\contentsline {section}{\numberline {3.4}Statistiques}{12}{section.3.4}
+\contentsline {paragraph}{}{12}{section*.25}
+\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{12}{section.3.5}
+\contentsline {paragraph}{}{12}{section*.26}
+\contentsline {chapter}{\numberline {4}Conclusion}{13}{chapter.4}

@@ -4,19 +4,7 @@
 \paragraph{}
 Les instances nous sont présenté sous forme de fichiers au format \textbf{DIMACS}\footnote{Représentation convetionnelle d'une instance du problème SAT}(plus de détails dans \ref{par:dimacs}) et sont disponibles en téléchargement gratuitement et librement sur \cite{Benchmark}, et sont le fruit du travail de nombreux chercheurs dévoués.
 \subsection{Format DIMACS}\label{par:dimacs}
-Un fichier en format \textbf{DIMACS} est un fichier dont l'extension est \textbf{.cnf}, et est structuré de la manière suivante : \\\\ 
-c\\
-c start with comments\\
-c\\
-c \\
-
-p cnf 5 3\\
-
-1 -5 4 0\\
--1 5 3 4 0\\
--3 -4 0\\
-\newpage
-\paragraph{Explications :}
+Un fichier en format \textbf{DIMACS} est un fichier dont l'extension est \textbf{.cnf}, et est structuré de la manière suivante : \\
 \begin{itemize}
 	\item Le fichier peut commencer avec des commentaires, un commentaire sur une ligne commence par le caractère \textbf{"c"}
 	\item La première ligne du fichier(après les commentaires) doit être structuré de la manière suivante : \textbf{p cnf nbvar nbclause}
@@ -27,6 +15,16 @@ p cnf 5 3\\
 	\end{enumerate}
 	\item chaque ligne représente une conjonction de litéraux $(x_{i} \vert \lnot x_{i})$ indentifiés par un numero $i$, séparés par un blanc, et le 0 à la fin dénote la fin d'une ligne.
 \end{itemize}
+\subsection{Example}
+c\\
+c Un commentaire\\
+c\\
+c \\
+p cnf 5 3\\
+1 -5 4 0\\
+-1 5 3 4 0\\
+-3 -4 0\\
+\newpage
 \subsection{Type d'instances}
 Dans \cite{Benchmark} nous avons à notre disposition deux types d'instances pour chaque taille du problème : \\
 \begin{itemize}

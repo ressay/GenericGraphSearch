@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.3)  15 MAR 2018 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.3)  15 MAR 2018 21:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -946,7 +946,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-<Page_garde.pdf, id=108, 597.50829pt x 845.0471pt>
+<Page_garde.pdf, id=112, 597.50829pt x 845.0471pt>
 File: Page_garde.pdf Graphic file (type pdf)
  <use Page_garde.pdf>
 Package pdftex.def Info: Page_garde.pdf used on input line 51.
@@ -957,7 +957,7 @@ File: Page_garde.pdf Graphic file (type pdf)
 Package pdftex.def Info: Page_garde.pdf used on input line 51.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<Page_garde.pdf, id=111, page=1, 597.50829pt x 845.0471pt>
+<Page_garde.pdf, id=115, page=1, 597.50829pt x 845.0471pt>
 File: Page_garde.pdf Graphic file (type pdf)
 
 <use Page_garde.pdf, page 1>
@@ -1039,55 +1039,45 @@ Overfull \hbox (1.09265pt too wide) in paragraph at lines 5--6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--12
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--18
+Underfull \hbox (badness 10000) in paragraph at lines 19--27
 
  []
 
 [8
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 31--33
+] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
-<images/machineWISS.png, id=241, 474.77374pt x 314.17375pt>
+<images/machineWISS.png, id=255, 474.77374pt x 314.17375pt>
 File: images/machineWISS.png Graphic file (type png)
 
 <use images/machineWISS.png>
-Package pdftex.def Info: images/machineWISS.png used on input line 41.
+Package pdftex.def Info: images/machineWISS.png used on input line 39.
 (pdftex.def)             Requested size: 356.07944pt x 235.62973pt.
 
-<images/machineYASSER.png, id=243, 533.995pt x 367.3725pt>
+<images/machineYASSER.png, id=257, 533.995pt x 367.3725pt>
 File: images/machineYASSER.png Graphic file (type png)
 
 <use images/machineYASSER.png>
-Package pdftex.def Info: images/machineYASSER.png used on input line 47.
+Package pdftex.def Info: images/machineYASSER.png used on input line 45.
 (pdftex.def)             Requested size: 355.10222pt x 244.29962pt.
- [9] [10 <./images/machineWISS.png> <./images/machineYASSER.png>]) [11] (./chap
-ter4.tex
+ [10 <./images/machineWISS.png>] [11 <./images/machineYASSER.png>]) [12] (./cha
+pter4.tex
 Chapitre 4.
-) [12
+) [13
 
 ] (./RapportPart1.lof)
 \tf@lof=\write5
 \openout5 = `RapportPart1.lof'.
 
- (./RapportPart1.bbl [13
+ (./RapportPart1.bbl [14
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
@@ -1096,7 +1086,7 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 66.
- [14
+ [15
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
@@ -1105,14 +1095,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 66.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 66.
 Package rerunfilecheck Info: File `RapportPart1.out' has not changed.
-(rerunfilecheck)             Checksum: 95C030AE4017B0150946AF2A103AC0BC;1795.
+(rerunfilecheck)             Checksum: 9E6D21B2B4DDA19E4A740093197F334C;1856.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 66.
  ) 
 Here is how much of TeX's memory you used:
- 13233 strings out of 494924
- 194088 string characters out of 6179709
+ 13235 strings out of 494924
+ 194118 string characters out of 6179709
  341264 words of memory out of 5000000
- 16220 multiletter control sequences out of 15000+600000
+ 16221 multiletter control sequences out of 15000+600000
  61519 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,18n,43p,861b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1128,10 +1118,10 @@ m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
 12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on RapportPart1.pdf (15 pages, 253199 bytes).
+Output written on RapportPart1.pdf (16 pages, 253488 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
- 81 named destinations out of 1000 (max. 500000)
- 239 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 389 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 247 words of extra memory for PDF output out of 10000 (max. 10000000)
 
