@@ -103,4 +103,7 @@
 \contentsline {section}{\numberline {3.5}Comparaison entres les cinq m\IeC {\'e}thodes}{29}{section.3.5}
 \contentsline {paragraph}{}{29}{section*.100}
 \contentsline {paragraph}{}{29}{section*.101}
-\contentsline {chapter}{\numberline {4}Conclusion}{30}{chapter.4}
+\contentsline {paragraph}{}{29}{section*.102}
+\contentsline {paragraph}{}{29}{section*.103}
+\contentsline {paragraph}{}{30}{section*.104}
+\contentsline {paragraph}{}{31}{section*.106}
