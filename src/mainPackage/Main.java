@@ -54,7 +54,7 @@ public class Main {
         satEvaluator.setEstimator(new SATHeuristicEstimator(satEvaluator));
         GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
         long t1 = System.currentTimeMillis();
-        SATNode n = (SATNode) searcher.search(new SATNode(null), 60*5);
+        SATNode n = (SATNode) searcher.search(new SATNode(null), 60*15);
         long diff = System.currentTimeMillis() - t1;
         long seconds = diff / 1000;
         System.out.println("RESULT FOUND IN " + seconds+ " AFTER "
