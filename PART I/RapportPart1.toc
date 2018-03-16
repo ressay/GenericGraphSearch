@@ -54,9 +54,22 @@
 \contentsline {subsection}{\numberline {3.3.1}En largeur d'abord :}{14}{subsection.3.3.1}
 \contentsline {subsubsection}{Pour les instances satisfiables :}{14}{section*.34}
 \contentsline {paragraph}{}{15}{section*.36}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{15}{section*.38}
-\contentsline {section}{\numberline {3.4}Statistiques}{16}{section.3.4}
-\contentsline {paragraph}{}{16}{section*.41}
-\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{16}{section.3.5}
-\contentsline {paragraph}{}{16}{section*.42}
-\contentsline {chapter}{\numberline {4}Conclusion}{17}{chapter.4}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{16}{section*.38}
+\contentsline {subsection}{\numberline {3.3.2}Par profondeur d'abord :}{17}{subsection.3.3.2}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{17}{section*.41}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{18}{section*.44}
+\contentsline {subsection}{\numberline {3.3.3}Cout uniforme}{19}{subsection.3.3.3}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{19}{section*.47}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{20}{section*.50}
+\contentsline {subsection}{\numberline {3.3.4}Recherche gloutonne}{21}{subsection.3.3.4}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{21}{section*.53}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{22}{section*.56}
+\contentsline {subsection}{\numberline {3.3.5}Algorithme A*}{23}{subsection.3.3.5}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{23}{section*.59}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{24}{section*.62}
+\contentsline {section}{\numberline {3.4}Statistiques}{25}{section.3.4}
+\contentsline {paragraph}{}{25}{section*.65}
+\contentsline {paragraph}{}{25}{section*.68}
+\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{25}{section.3.5}
+\contentsline {paragraph}{}{25}{section*.69}
+\contentsline {chapter}{\numberline {4}Conclusion}{26}{chapter.4}

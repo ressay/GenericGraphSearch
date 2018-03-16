@@ -22,6 +22,10 @@
 \BOOKMARK [2][-]{subsection.3.2.2}{Outils utilis\351s}{section.3.2}% 22
 \BOOKMARK [1][-]{section.3.3}{R\351sultats}{chapter.3}% 23
 \BOOKMARK [2][-]{subsection.3.3.1}{En largeur d'abord :}{section.3.3}% 24
-\BOOKMARK [1][-]{section.3.4}{Statistiques}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.5}{Comparaison entres les quatres m\351thodes}{chapter.3}% 26
-\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 27
+\BOOKMARK [2][-]{subsection.3.3.2}{Par profondeur d'abord :}{section.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.3}{Cout uniforme}{section.3.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.4}{Recherche gloutonne}{section.3.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.5}{Algorithme A*}{section.3.3}% 28
+\BOOKMARK [1][-]{section.3.4}{Statistiques}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.5}{Comparaison entres les quatres m\351thodes}{chapter.3}% 30
+\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 31

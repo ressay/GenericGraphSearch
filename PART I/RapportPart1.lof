@@ -6,4 +6,12 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Machine \textbf {B} pour les instances satisfiables\relax }}{13}{figure.caption.28}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Illustration des donn\IeC {\'e}es de \ref {table:Tab_BFS_Sat}\relax }}{15}{figure.caption.37}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Illustration des donn\IeC {\'e}es de \ref {table:Tab_BFS_Non_Sat}\relax }}{16}{figure.caption.40}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_DFS_Sat}\relax }}{17}{figure.caption.43}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_DFS_Non_Sat}\relax }}{18}{figure.caption.46}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_UniformCost_Sat}\relax }}{19}{figure.caption.49}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_UniformCost_Non_Sat}\relax }}{20}{figure.caption.52}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_Greedy_Sat}\relax }}{21}{figure.caption.55}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_Greedy_Non_Sat}\relax }}{22}{figure.caption.58}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_Astar_Sat}\relax }}{23}{figure.caption.61}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Illustration des donn\IeC {\'e}es de la table \ref {table:Tab_Astar_Non_Sat}\relax }}{24}{figure.caption.64}
 \addvspace {10\p@ }
