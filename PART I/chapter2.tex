@@ -189,9 +189,8 @@ La différence entre les algorithmes de recherche réside dans la manière dont 
 En se basant sur cette algorithme nous avons implémenter une procédure de recherche générique prenant en paramètre un type de gestion de liste, un estimateur de coût et d’heuristique et les entrés de l’instance SAT afin d’évaluer les noeuds.
 \subsection{Gestion de la liste open}
 \paragraph{}
-Les méthodes partagent quasiment le même pseudo code, à l'excéption de la façon dont la liste \textbf{open} est géré, en insertion et en supression.
+
 \subsubsection{Profondeur d'abord}
-\paragraph{}
 La recherche en profondeur d’abord consiste à choisir le noeud avec la profondeur la plus élevé de l’arbre, ceci reviens à sélectionner l’élément le plus récemment inséré dans la liste open, c’est à dire, la gérer avec une politique LIFO.\\
 Insertion d'un noeud:\\
 \begin{minipage}{0.5\textwidth}
@@ -234,6 +233,7 @@ $\leftarrow$
 
 \subsubsection{Largeur d'abord}
 \paragraph{}
+
 Contrairement à la recherche en profondeur d’abord, les noeuds sont visités de tel sorte à parcourir l’arbre niveau par niveau, cela peut être réalisé par la sélection du noeud le moins récemment insérer dans open, d’où une gestion LIFO de la liste.\\
 Insertion d'un noeud:\\
 \begin{minipage}{0.5\textwidth}
