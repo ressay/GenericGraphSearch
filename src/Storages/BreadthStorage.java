@@ -4,13 +4,14 @@ import GenericGraphSearch.Node;
 import GenericGraphSearch.Storage;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Created by ressay on 24/02/18.
  */
 public class BreadthStorage extends Storage
 {
-    ArrayList<Node> list = new ArrayList<>();
+    LinkedList<Node> list = new LinkedList<>();
     @Override
     public void add(Node node) {
         list.add(node);
@@ -23,6 +24,6 @@ public class BreadthStorage extends Storage
 
     @Override
     public Node getNext() {
-        return list.remove(0);
+        return list.removeFirst();
     }
 }

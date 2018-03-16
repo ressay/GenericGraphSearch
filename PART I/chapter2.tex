@@ -368,3 +368,10 @@ La première méthode consiste à parcourir la matrice des clauses et chercher p
 \end{algorithm}
 \subsubsection{Évaluation par Bitset}
 Comme vu précédemment, en utilisant la structure Bitset pour représenter l’instance SAT chaque noeud contient un Bitset des clauses satisfaites par sa branche, il suffit donc de calculer le nombre de bits à 1 pour décider si c’est un noeud but ou pas. Nous utilisons pour cela l’algorithme “Hamming Weight” permettant de calculer le nombre de bits à 1 dans un entier en une complexité constante.
+
+\begin{tabular}{|c | c| c|}
+	\hline
+	\backslashbox{gestion de open}{évaluation par}& Matrice & Bitset\\\hline
+	liste triée& 205124 évaluations& 11952330 évaluations\\\hline
+	tas & 237532 évaluations& 37252319 évaluations\\\hline
+\end{tabular}

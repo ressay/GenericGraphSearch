@@ -24,13 +24,13 @@ public class Main {
 
             //Add the plotter here and set it up.
             //XYPlotter dataBarPlotter = new XYPlotter(file2, "Attempt", "Percentage");
-            BarPlotter dataBarPlotter = new BarPlotter(file2,"Attempt","Percentage");
-            dataBarPlotter.setUpAndShow();
+//            BarPlotter dataBarPlotter = new BarPlotter(file2,"Attempt","Percentage");
+//            dataBarPlotter.setUpAndShow();
 
             System.out.println("FILE : " + file2 + "\n");
             for (int j = 0; j < 1; j++) {
                 System.out.println("ATTEMPT : " + (j + 1));
-                SATNode n = executeSATAStar("UF75.325.100/" + file2, dataBarPlotter, j+1);
+                SATNode n = executeSATBreadth("UF75.325.100/" + file2, null, j+1);
 //            SATNode n = executeSATDepth("test.cnf");
 
                 if (n != null) {
@@ -51,10 +51,10 @@ public class Main {
     public static SATNode executeSAT(String file, Storage method, Plotter dataBarPlotter, int attempt) throws IOException {
 
         SATEvaluator satEvaluator = SATEvaluator.loadClausesFromDimacs(file);
-        satEvaluator.setEstimator(new SATHeuristicEstimatorGreedy(satEvaluator));
+        satEvaluator.setEstimator(new SATHeuristicEstimator(satEvaluator));
         GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
         long t1 = System.currentTimeMillis();
-        SATNode n = (SATNode) searcher.search(new SATNode(null), 10);
+        SATNode n = (SATNode) searcher.search(new SATNode(null), 60*5);
         long diff = System.currentTimeMillis() - t1;
         long seconds = diff / 1000;
         System.out.println("RESULT FOUND IN " + seconds+ " AFTER "
@@ -67,6 +67,7 @@ public class Main {
                 dataBarPlotter.addData(attempt, percent);
             System.out.println("SATISFIED " + maxNumberOfClausesSatisfied + "/" + numberOfClause +
                     "  (" + percent + "%) \n");
+            System.out.println("number of evaluations: " + satEvaluator.numberOfEvaluation);
 //            drawClausesFrequencies(satEvaluator.getClausesFrequencies());
 
         }
