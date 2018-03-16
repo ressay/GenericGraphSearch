@@ -28,7 +28,7 @@ public class Main {
             dataBarPlotter.setUpAndShow();
 
             System.out.println("FILE : " + file2 + "\n");
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 1; j++) {
                 System.out.println("ATTEMPT : " + (j + 1));
                 SATNode n = executeSATAStar("UF75.325.100/" + file2, dataBarPlotter, j+1);
 //            SATNode n = executeSATDepth("test.cnf");
@@ -54,7 +54,7 @@ public class Main {
         satEvaluator.setEstimator(new SATHeuristicEstimatorGreedy(satEvaluator));
         GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
         long t1 = System.currentTimeMillis();
-        SATNode n = (SATNode) searcher.search(new SATNode(null), 20);
+        SATNode n = (SATNode) searcher.search(new SATNode(null), 10);
         long diff = System.currentTimeMillis() - t1;
         long seconds = diff / 1000;
         System.out.println("RESULT FOUND IN " + seconds+ " AFTER "

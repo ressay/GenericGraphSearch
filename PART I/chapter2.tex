@@ -310,3 +310,61 @@ Complexité de la sélection : $o(1)$.\\
 \paragraph{Tas}
 Les noeuds sont organisé dans une structure de tas\footnote{un tas est un arbre équilibré dont chaque noeud a une clé supérieur (resp. Inférieur) à celle de ses fils}. La racine du tas est sélectionner pour l’évaluation, tandis que l’insertion se fait par entassement du nouveau élément. Les deux opérations se font en $o(log(n))$.
 
+\subsection{Fonction d'évaluation}
+La fonction d’évaluation f d’un noeud n est généralement définit à l’aide de deux autres fonctions g et h. La première désigne le coût nécessaire pour atteindre le noeud n à partir de la racine, tandis que la deuxième est une heuristique qui estime le coût restant avant d’arriver au but.
+\subsubsection{Recherche gloutonne}
+La fonction d’évaluation dans ce cas f est égale à h, on se contente de la valeur estimé par l’heuristique pour décider le prochain noeud à développer. Une heuristique pour le problème SAT qui peut mesurer la distance des noeuds par rapport au noeud but serait de calculer le nombre de clauses pas encore satisfaites, le noeud avec la valeur minimale de cette heuristique est le noeud qui satisfait le plus de clauses et donc le plus proche de satisfaire toutes les clauses.
+\subsubsection{Recherche à coût uniforme}
+Contrairement à la recherche gloutonne, la recherche à coût uniforme n’utilise que la fonction g, permettant ainsi de développer le noeud le plus proche de la racine en terme de coût. Cependant trouver une fonction d’estimation du coût pour le problème SAT s’avère délicat comme on ne peut pas vraiment déterminer une distance entre un noeud et la racine. Ceci dit, une fonction de coût qui calcule le nombre de clauses devant être satisfaite par un noeud mais qui sont déjà satisfaite par ses parents peut être utilisé. Cela représente la perte d’une branche contenant des littéraux qui satisfont les même clauses de l’instance SAT, plus le coût est élevé, moins les chances que cette branche nous mène au but.
+
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\begin{tabular}{|c | c| c| c|c|}
+		\hline
+		$Bitset$ du parent& {\color{red}1} & 0 & 0 & 1 \\\hline
+	\end{tabular}
+\end{minipage}
+$\rightarrow$
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\begin{tabular}{|c | c| c| c|c|}
+		\hline
+		$Bitset$ du littéral& {\color{red}1} & 1 & 0 & 0\\\hline
+	\end{tabular}
+\end{minipage}
+\begin{center}
+	$cout = 1$
+\end{center}
+
+\subsubsection{Algorithme A*}
+L’algorithme A* combine les deux fonctions g et h citées précédemment afin d’évaluer les noeuds en prenant en considération le nombre de clauses déjà satisfaites ainsi que le coût de la branche dans laquelle il se trouve.
+\subsection{Évaluateur SAT}
+Dans cette partie nous présentons deux méthodes d’évaluation du noeud but basé sur les deux structures représentatives des instances SAT citées précédemment.
+\subsubsection{Évaluation par matrice}
+La première méthode consiste à parcourir la matrice des clauses et chercher pour chaque clause si un de ses littéraux a été évalué vrai par les noeuds de la solution. Si dessous l’algorithme correspondant.\\
+\begin{algorithm}
+	\SetAlgoLined
+	\KwResult{retourne un booléen: vrai si la solution est positive, faux sinon}
+	\textbf{entré}: $solution$\;
+	\For{$clause \in$ $matrice$}{
+		$satC\gets faux$ \;
+		\For{$noeud \in$ $solution$ et $\neg satC$}{
+			\If{$clause[\textbf{abs}(noeud.valeur)]\times$ $noeud.valeur$ > 0}
+			{
+				$satC\gets vrai$\;
+			}
+		}
+		\If{$satC$}{
+			$cpt \gets$ $cpt + 1$\;	
+		}
+		
+	}
+	\If{$cpt = \textbf{taille}(matrice)$}
+	{
+		\Return $vrai$\;
+	}
+	\Return $faux$\;
+	\caption{Algorithme d'évaluation par matrice}
+\end{algorithm}
+\subsubsection{Évaluation par Bitset}
+Comme vu précédemment, en utilisant la structure Bitset pour représenter l’instance SAT chaque noeud contient un Bitset des clauses satisfaites par sa branche, il suffit donc de calculer le nombre de bits à 1 pour décider si c’est un noeud but ou pas. Nous utilisons pour cela l’algorithme “Hamming Weight” permettant de calculer le nombre de bits à 1 dans un entier en une complexité constante.

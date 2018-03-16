@@ -21,8 +21,8 @@ public class SATHeuristicEstimator2 extends HeuristicEstimator
         SATNode satNode = (SATNode) node;
         int numSatisfied = estimateBitSet(satNode);
         satNode.setNumberOfClausesSatisfied(numSatisfied);
-        int diff2 = evaluator.getNumberOfAppearanceOfNodeDepth(node.getDepth()) - ((SATNode) node).getNumberOfClausesSatisfiedByThisNode();
-        satNode.setG(((SATNode)node.getParent()).getG()+diff2/evaluator.getNumberOfVariables());
+        int diff2 = evaluator.getNumberOfAppearanceOfNode((SATNode) node) - ((SATNode) node).getNumberOfClausesSatisfiedByThisNode();
+        satNode.setG(((SATNode)node.getParent()).getG()+(double) diff2/(double)evaluator.getNumberOfVariables());
         node.setH(evaluator.getNumberOfClauses() - numSatisfied);
         return 0;
     }
