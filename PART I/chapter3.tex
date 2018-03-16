@@ -1,19 +1,19 @@
 \chapter{Expérimentations}
 \section{Donnés}\label{dataSet}
-\paragraph{}Afin de tester notre programme nous avons opté pour l'utilisation de fichiers benchmark qui vont représenter des instances du problème, dorénavant, et pour être plus conforme avec la terminologie di problème, nous utiliserons le terme \textbf{INSTANCE} pour désigner ces dits fichiers.
+\paragraph{}Afin de tester notre programme nous avons opté pour l'utilisation de fichiers benchmark qui vont représenter des instances du problème, dorénavant, et pour être plus conforme avec la terminologie du problème, nous utiliserons le terme \textbf{INSTANCE} pour désigner ces dits fichiers.
 \paragraph{}
-Les instances nous sont présentées sous forme de fichiers au format \textbf{DIMACS}\footnote{Représentation convetionnelle d'une instance du problème SAT}(plus de détails dans \ref{par:dimacs}) et sont disponibles en téléchargement gratuitement et librement sur \cite{Benchmark}, et sont le fruit du travail de nombreux chercheurs dévoués.
+Les instances nous sont présentées sous forme de fichiers au format \textbf{DIMACS}\footnote{Représentation convetionnelle d'une instance du problème SAT}(plus de détails dans \ref{par:dimacs}) et sont disponibles en téléchargement gratuitement et librement dans \cite{Benchmark}, et sont également le fruit du travail de nombreux chercheurs dévoués.
 \subsection{Format DIMACS}\label{par:dimacs}
 Un fichier en format \textbf{DIMACS} est un fichier dont l'extension est \textbf{.cnf}, et est structuré de la manière suivante : \\
 \begin{itemize}
-	\item Le fichier peut commencer avec des commentaires, un commentaire sur une ligne commence par le caractère \textbf{"c"}
-	\item La première ligne du fichier(après les commentaires) doit être structuré de la manière suivante : \textbf{p cnf nbvar nbclause}
+	\item Le fichier peut commencer avec des commentaires, un commentaire sur une ligne commence par le caractère \textbf{'c'}
+	\item La première ligne du fichier(après les commentaires) doit être structurée de la manière suivante : \textbf{\textcolor{green}{p cnf} \textcolor{blue}{nbvar} \textcolor{red}{nbclause}}
 	\begin{enumerate}
-		\item \textbf{p cnf} pour indiquer que l'instance est en forme normale conjonctive \textbf{FNC}.
-		\item \textbf{nbvar} indique le nombre de litéral au total dans l'instance, à noté que chaque literal $x_{i}$ sera représenté par son indice $i$.
-		\item \textbf{nbclause} le nombre total de clause présentes dans l'instance.
+		\item \textbf{\textcolor{green}{p cnf}} pour indiquer que l'instance est en forme normale conjonctive \textbf{FNC}.
+		\item \textbf{\textcolor{blue}{nbvar}} indique le nombre de litéraux au total dans l'instance, à noté que chaque literal $x_{i}$ sera représenté par son indice $i$.
+		\item \textbf{\textcolor{red}{nbclause}} le nombre total de clauses présentes dans l'instance.
 	\end{enumerate}
-	\item chaque ligne représente une conjonction de litéraux $(x_{i} \vert \lnot x_{i})$ indentifiés par un numero $i$, séparés par un blanc, et le 0 à la fin dénote la fin d'une ligne.
+	\item chaque ligne représente une conjonction de litéraux $(x_{i} \vert \lnot x_{i})$ indentifiés par un numero $i$, séparés par un blanc, avec un 0 à la fin pour marquer la fin de la ligne.
 \end{itemize}
 \subsection{Example}
 c\\
@@ -27,13 +27,19 @@ p cnf 5 3\\
 \subsection{Type d'instances}
 Dans \cite{Benchmark} nous avons à notre disposition deux types d'instances pour chaque taille du problème : \\
 \begin{itemize}
-	\item Un ensemble d'instances satisfiable dans un fichier dénommé UF\textbf{XX}-\textbf{YY},\\avec \textbf{XX} = nombre de litéraux et \textbf{YY} = nombre de clauses
+	\item Un ensemble d'instances satisfiable dans un fichier dénommé UF\textbf{\textcolor{blue}{XX}}-\textbf{\textcolor{red}{YY}}
+	\item Un ensemble d'instances satisfiable dans un fichier dénommé UUF\textbf{\textcolor{blue}{XX}}-\textbf{\textcolor{red}{YY}}
+	\item avec : 
+	\begin{enumerate}
+		\item \textbf{\textcolor{blue}{XX}} = nombre de litéraux
+		\item \textbf{\textcolor{red}{YY}} = nombre de clauses
+	\end{enumerate}
 \end{itemize}
 \newpage
 \section{Environement de travail}
 \subsection{Machines}
 \paragraph{}
-Pour les tests nous avons utilisé deux machines pour chaques groupes d'instances, autrement dit une machine pour éffecutuer les tests sur un ensembles d'instances satisfiables \textbf{UF75-325}\cite{Benchmark} et une autre sur les instances contradictoires(non satisfiables) \textbf{UUF75-325}\cite{Benchmark}, les caractéristiques de chaques machines sont données dans les figures \ref{fig:machineA} et \ref{fig:machineB} suivantes : 
+Pour les tests nous avons utilisé deux machines pour chaques groupes d'instances, autrement dit une machine pour éffecutuer les tests sur un ensembles d'instances satisfiables \textbf{\textcolor{blue}{UF75-325}}\cite{Benchmark} et une autre sur les instances contradictoires(non satisfiables) \textbf{\textcolor{red}{UUF75-325}}\cite{Benchmark}, les caractéristiques de chaques machines sont données dans les figures \ref{fig:machineA} et \ref{fig:machineB} suivantes : 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{images/machineWISS.png}
@@ -52,12 +58,13 @@ Pour les tests nous avons utilisé deux machines pour chaques groupes d'instance
 \paragraph{}
 Nous avons opté pour le langage \href{https://fr.wikipedia.org/wiki/Java_(technique)}{Java}, car il offre une grande flexibilité et un facilite l'implémentation qui est due au fait qu'il soit totallement orienté-objet.
 \subsubsection{IDE : }
-\paragraph{IntelliJ Idea} L'environement de dévelopement choisit est \href{https://www.jetbrains.com/idea/}{IntelliJ IDEA}, spécialement dédié au développement en utilisant le langage \href{https://fr.wikipedia.org/wiki/Java_(technique)}{Java}, il est proposé par l'entreprise \href{https://www.jetbrains.com}{JetBrains} il est caractérisé par sa forte simplicité d'utilisation et les nombreuse plugins et extentions qui lui sont dédiées.
+\paragraph{IntelliJ Idea} L'environement de dévelopement choisit est \href{https://www.jetbrains.com/idea/}{IntelliJ IDEA}, spécialement dédié au développement en utilisant le langage \href{https://fr.wikipedia.org/wiki/Java_(technique)}{Java}, il est proposé par l'entreprise \href{https://www.jetbrains.com}{JetBrains} et est caractérisé par sa forte simplicité d'utilisation et les nombreux plugins et extentions qui lui sont dédiées.
 
 \section{Résultats}\label{tests}
 \paragraph{}
 Pour chacun des groupes d'instancs(i.e UF75-325 et UUF75-325) nous avons lancé les machines dédiées sur les 10 premières instances, avec 10 exécutions de durées égales à 10 mins pour chaque instance et pour chaque méthodes, les résultats sont les suivants : \\
 \subsection{En largeur d'abord :}
+\paragraph{}
 Les résultats sont présentés d'abord sous forme de tables puis illustrés dans des histogrammes : 
 \subsubsection{Pour les instances satisfiables :}
 % Please add the following required packages to your document preamble:
@@ -367,13 +374,18 @@ Les résultats sont présentés d'abord sous forme de tables puis illustrés dan
 			\multicolumn{6}{|c|}{\multirow{2}{*}{UF75-325}}                                                               \\
 			\multicolumn{6}{|c|}{}                                                                                        \\ \hline
 			Mesure                              & BFS       & DFS       & Coût Uniforme & Recherche Gloutonne & A*        \\ \hline
-			Nombre moyen de clauses satisfaites & 139,4     & 303,1     & 303,0         & 316,1               & 314,0     \\ \hline
-			Taux Moyen de satisfiablié          & 42,9021\% & 93,2677\% & 93,2154\%     & 97,2615\%           & 96,6000\% \\ \hline
+			Nombre moyen de clauses satisfaites & 139,4     & 303,1     & 303,0         & 314,0               & 316,1     \\ \hline
+			Taux Moyen de satisfiablié          & 42,9021\% & 93,2677\% & 93,2154\%     & 96,6000\%           &  97,2615\% \\ \hline
 		\end{tabular}%
 	}
 	\caption{Tableau de mesures statistiques pour les instances satifsiables}
 	\label{table:stat_sat}
 \end{table}
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{images/CompareUF75.png}
+	\caption{Illustration des données de la table \ref{table:stat_sat}}
+\end{figure}
+\newpage
 %------------------------------------------------------------------------------
 \begin{table}[H]
 	\centering
@@ -381,7 +393,7 @@ Les résultats sont présentés d'abord sous forme de tables puis illustrés dan
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
-			\multicolumn{6}{|c|}{\multirow{2}{*}{UF75-325}}                                                               \\
+			\multicolumn{6}{|c|}{\multirow{2}{*}{UUF75-325}}                                                               \\
 			\multicolumn{6}{|c|}{}                                                                                        \\ \hline
 			Mesure                              & BFS       & DFS       & Coût uniforme & Recherche gloutonne & A*        \\ \hline
 			Nombre moyen de clauses satisfaites & 136,0     & 304,3     & 301,9         & 312,9               & 315,1     \\ \hline
@@ -391,6 +403,11 @@ Les résultats sont présentés d'abord sous forme de tables puis illustrés dan
 	\caption{Tableau de mesures statistiques pour les instances non-satifsiables}
 	\label{table:stat_non_sat}
 \end{table}
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{images/CompareUUF75.png}
+	\caption{Illustration des données de la table \ref{table:stat_non_sat}}
+\end{figure}
+\newpage
 %------------------------------------------------------------------------------
 
 \paragraph{}
