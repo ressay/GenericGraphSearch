@@ -32,29 +32,31 @@
 \contentsline {subsubsection}{Profondeur d'abord}{9}{section*.19}
 \contentsline {subsubsection}{Largeur d'abord}{9}{section*.20}
 \contentsline {subsubsection}{Recherche En se basant sur une fonction d'\IeC {\'e}valuation}{9}{section*.21}
-\contentsline {chapter}{\numberline {3}Exp\IeC {\'e}rimentations}{10}{chapter.3}
-\contentsline {section}{\numberline {3.1}Donn\IeC {\'e}s}{10}{section.3.1}
-\contentsline {paragraph}{}{10}{section*.22}
-\contentsline {paragraph}{}{10}{section*.23}
-\contentsline {subsection}{\numberline {3.1.1}Format DIMACS}{10}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Example}{11}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Type d'instances}{11}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Environement de travail}{12}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Machines}{12}{subsection.3.2.1}
-\contentsline {paragraph}{}{12}{section*.24}
-\contentsline {subsection}{\numberline {3.2.2}Outils utilis\IeC {\'e}s}{13}{subsection.3.2.2}
-\contentsline {subsubsection}{Langage de programmation : }{13}{section*.27}
-\contentsline {paragraph}{}{13}{section*.28}
-\contentsline {subsubsection}{IDE : }{13}{section*.29}
-\contentsline {paragraph}{IntelliJ Idea}{13}{section*.30}
-\contentsline {section}{\numberline {3.3}R\IeC {\'e}sultats}{13}{section.3.3}
-\contentsline {paragraph}{}{13}{section*.31}
-\contentsline {subsection}{\numberline {3.3.1}En largeur d'abord :}{13}{subsection.3.3.1}
-\contentsline {subsubsection}{Pour les instances satisfiables :}{13}{section*.32}
-\contentsline {paragraph}{}{14}{section*.34}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{14}{section*.36}
-\contentsline {section}{\numberline {3.4}Statistiques}{15}{section.3.4}
-\contentsline {paragraph}{}{15}{section*.39}
-\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{15}{section.3.5}
-\contentsline {paragraph}{}{15}{section*.40}
-\contentsline {chapter}{\numberline {4}Conclusion}{16}{chapter.4}
+\contentsline {paragraph}{Liste tri\IeC {\'e}e}{9}{section*.22}
+\contentsline {paragraph}{Tas}{10}{section*.23}
+\contentsline {chapter}{\numberline {3}Exp\IeC {\'e}rimentations}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Donn\IeC {\'e}s}{11}{section.3.1}
+\contentsline {paragraph}{}{11}{section*.24}
+\contentsline {paragraph}{}{11}{section*.25}
+\contentsline {subsection}{\numberline {3.1.1}Format DIMACS}{11}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Example}{12}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Type d'instances}{12}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Environement de travail}{13}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Machines}{13}{subsection.3.2.1}
+\contentsline {paragraph}{}{13}{section*.26}
+\contentsline {subsection}{\numberline {3.2.2}Outils utilis\IeC {\'e}s}{14}{subsection.3.2.2}
+\contentsline {subsubsection}{Langage de programmation : }{14}{section*.29}
+\contentsline {paragraph}{}{14}{section*.30}
+\contentsline {subsubsection}{IDE : }{14}{section*.31}
+\contentsline {paragraph}{IntelliJ Idea}{14}{section*.32}
+\contentsline {section}{\numberline {3.3}R\IeC {\'e}sultats}{14}{section.3.3}
+\contentsline {paragraph}{}{14}{section*.33}
+\contentsline {subsection}{\numberline {3.3.1}En largeur d'abord :}{14}{subsection.3.3.1}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{14}{section*.34}
+\contentsline {paragraph}{}{15}{section*.36}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{15}{section*.38}
+\contentsline {section}{\numberline {3.4}Statistiques}{16}{section.3.4}
+\contentsline {paragraph}{}{16}{section*.41}
+\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{16}{section.3.5}
+\contentsline {paragraph}{}{16}{section*.42}
+\contentsline {chapter}{\numberline {4}Conclusion}{17}{chapter.4}

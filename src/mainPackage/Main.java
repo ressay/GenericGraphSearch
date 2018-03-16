@@ -51,10 +51,10 @@ public class Main {
     public static SATNode executeSAT(String file, Storage method, Plotter dataBarPlotter, int attempt) throws IOException {
 
         SATEvaluator satEvaluator = SATEvaluator.loadClausesFromDimacs(file);
-        satEvaluator.setEstimator(new SATHeuristicEstimator(satEvaluator));
+        satEvaluator.setEstimator(new SATHeuristicEstimatorGreedy(satEvaluator));
         GraphSearch searcher = new GraphSearch(method, satEvaluator, satEvaluator.getDepth());
         long t1 = System.currentTimeMillis();
-        SATNode n = (SATNode) searcher.search(new SATNode(null), 5);
+        SATNode n = (SATNode) searcher.search(new SATNode(null), 20);
         long diff = System.currentTimeMillis() - t1;
         long seconds = diff / 1000;
         System.out.println("RESULT FOUND IN " + seconds+ " AFTER "

@@ -21,10 +21,10 @@ public class SATHeuristicEstimatorGreedy extends HeuristicEstimator
         SATNode satNode = (SATNode) node;
         int numSatisfied = estimateBitSet(satNode);
         satNode.setNumberOfClausesSatisfied(numSatisfied);
-        int diff2 = evaluator.getBitSetOf(satNode).cardinality() - ((SATNode) node).getNumberOfClausesSatisfiedByThisNode();
+        int diff2 = evaluator.getNumberOfAppearanceOfNode((SATNode)node);
 //        satNode.setG(((SATNode)node.getParent()).getG()+ratio);
         satNode.setG(((SATNode)node.getParent()).getG()+diff2);
-        node.setH(evaluator.getNumberOfClauses() - numSatisfied);
+//        node.setH(evaluator.getNumberOfClauses() - numSatisfied);
         return 0;
     }
 

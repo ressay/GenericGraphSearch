@@ -262,6 +262,51 @@ $\leftarrow$
 \end{minipage}
 
 \subsubsection{Recherche En se basant sur une fonction d'évaluation}
+Dans ce type de recherche, la sélection d’un noeud se fait sur la base d’une fonction d’évaluation. Le noeud sélectionné est celui avec la valeur minimale (resp. maximale) de la fonction d’évaluation. Nous utilisons ce type de gestion afin d’implémenter les algorithmes: recherche à coût uniforme, recherche gloutonne et l’algorithme A*.\\
+Nous avons implémenter ce type de gestion avec deux structures différentes que nous comparerons dans la suite de ce rapport.
+\paragraph{Liste triée}
+Les noeuds sont triés dans une liste selon leur valeur estimé par la fonction d’évaluation. Le premier noeud est toujours sélectionner, l’insertion par contre se fait de tel sorte à garder la liste triée en ordre croissant (resp. décroissant).\\
+Insertion d'un noeud:\\
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\begin{tabular}{|c |c|}
+		\hline
+		3 & $f_{3}=5$\\
+		\hline
+	\end{tabular}
+\end{minipage}
+\hfillx
+$\rightarrow$
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\begin{tabular}{| c| c|c | c| c| c|}
+		\hline
+		 -3& $f_{-3}=2$ & {\color{red}3}& {\color{red}$f_{3}=5$} & -1& $f_{-1}=8$ \\\hline
+	\end{tabular}
+\end{minipage}
+
+Sélection d'un noeud:\\
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\begin{tabular}{|c |c|}
+		\hline
+		{\color{red}-3} & {\color{red}$f_{-3}=2$}\\
+		\hline
+	\end{tabular}
+\end{minipage}
+\hfillx
+$\leftarrow$
+\begin{minipage}{0.5\textwidth}
+	\centering
+	\begin{tabular}{|c | c| c| c|}
+		\hline
+		3& $f_{3}=5$ & -1& $f_{-1}=8$ \\\hline
+	\end{tabular}
+\end{minipage}\\~\\
+Complexité de l’insertion : $o(n)$.\\
+Complexité de la sélection : $o(1)$.\\
 
 
+\paragraph{Tas}
+Les noeuds sont organisé dans une structure de tas\footnote{un tas est un arbre équilibré dont chaque noeud a une clé supérieur (resp. Inférieur) à celle de ses fils}. La racine du tas est sélectionner pour l’évaluation, tandis que l’insertion se fait par entassement du nouveau élément. Les deux opérations se font en $o(log(n))$.
 

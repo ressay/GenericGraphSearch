@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.18)  16 MAR 2018 12:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.18)  16 MAR 2018 13:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1616,7 +1616,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--130
 
  []
 
-[7] [8]) [9] (./chapter3.tex
+[7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 288--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--308
+
+ []
+
+[9]) [10] (./chapter3.tex
 Chapitre 3.
 
 Overfull \hbox (11.78464pt too wide) in paragraph at lines 5--6
@@ -1634,37 +1644,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--27
 
  []
 
-[10
+[11
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
  []
 
-[11] <images/machineWISS.png, id=294, 474.77374pt x 314.17375pt>
+[12] <images/machineWISS.png, id=304, 474.77374pt x 314.17375pt>
 File: images/machineWISS.png Graphic file (type png)
 
 <use images/machineWISS.png>
 Package pdftex.def Info: images/machineWISS.png used on input line 39.
 (pdftex.def)             Requested size: 356.07944pt x 235.62973pt.
 
-<images/machineYASSER.png, id=296, 533.995pt x 367.3725pt>
+<images/machineYASSER.png, id=306, 533.995pt x 367.3725pt>
 File: images/machineYASSER.png Graphic file (type png)
 
 <use images/machineYASSER.png>
 Package pdftex.def Info: images/machineYASSER.png used on input line 45.
 (pdftex.def)             Requested size: 355.10222pt x 244.29962pt.
- [12 <./images/machineWISS.png> <./images/machineYASSER.png>]
+ [13 <./images/machineWISS.png> <./images/machineYASSER.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
-[13]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-<images/BFSUF75Graph.png, id=322, 445.03105pt x 254.84685pt>
+<images/BFSUF75Graph.png, id=331, 445.03105pt x 254.84685pt>
 File: images/BFSUF75Graph.png Graphic file (type png)
 
 <use images/BFSUF75Graph.png>
@@ -1676,7 +1686,7 @@ Package caption Warning: \label without proper reference on input line 67.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 14 undefined on input line
+LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 15 undefined on input line
  89.
 
 
@@ -1684,11 +1694,11 @@ Package caption Warning: \label without proper reference on input line 67.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 14 undefined on input line
+LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 15 undefined on input line
  89.
 
-[14 <./images/BFSUF75Graph.png>]
-<images/BFSUUF75Graph.png, id=334, 444.08014pt x 249.14131pt>
+[15 <./images/BFSUF75Graph.png>]
+<images/BFSUUF75Graph.png, id=343, 444.08014pt x 249.14131pt>
 File: images/BFSUUF75Graph.png Graphic file (type png)
 
 <use images/BFSUUF75Graph.png>
@@ -1700,7 +1710,7 @@ Package caption Warning: \label without proper reference on input line 97.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 15 undefined on input 
+LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 16 undefined on input 
 line 117.
 
 
@@ -1708,12 +1718,12 @@ Package caption Warning: \label without proper reference on input line 97.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 15 undefined on input 
+LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 16 undefined on input 
 line 117.
 
-) [15 <./images/BFSUUF75Graph.png>] (./chapter4.tex
+) [16 <./images/BFSUUF75Graph.png>] (./chapter4.tex
 Chapitre 4.
-) [16
+) [17
 
 ] (./RapportPart1.lof
 
@@ -1721,7 +1731,7 @@ Package caption Warning: \label without proper reference on input line 67.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 17 undefined on input line
+LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 18 undefined on input line
  7.
 
 
@@ -1729,21 +1739,21 @@ Package caption Warning: \label without proper reference on input line 97.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 17 undefined on input 
+LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 18 undefined on input 
 line 8.
 
 )
 \tf@lof=\write6
 \openout6 = `RapportPart1.lof'.
 
- (./RapportPart1.bbl [17
+ (./RapportPart1.bbl [18
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)) [18
+)) [19
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 71.
@@ -1761,8 +1771,8 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
  ) 
 Here is how much of TeX's memory you used:
- 40665 strings out of 493029
- 850940 string characters out of 6136233
+ 40669 strings out of 493029
+ 850980 string characters out of 6136233
  910357 words of memory out of 5000000
  43544 multiletter control sequences out of 15000+600000
  68146 words of font info for 65 fonts, out of 8000000 for 9000
@@ -1777,14 +1787,15 @@ chri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sftt1200.pfb>
-Output written on RapportPart1.pdf (19 pages, 303171 bytes).
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sftt1200.pfb>
+Output written on RapportPart1.pdf (20 pages, 312769 bytes).
 PDF statistics:
- 435 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
- 118 named destinations out of 1000 (max. 500000)
+ 448 PDF objects out of 1000 (max. 8388607)
+ 392 compressed objects within 4 object streams
+ 122 named destinations out of 1000 (max. 500000)
  269 words of extra memory for PDF output out of 10000 (max. 10000000)
 
