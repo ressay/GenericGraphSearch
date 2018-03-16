@@ -65,7 +65,8 @@ Nous avons opté pour le langage \href{https://fr.wikipedia.org/wiki/Java_(techn
 Pour chacun des groupes d'instancs(i.e UF75-325 et UUF75-325) nous avons lancé les machines dédiées sur les 10 premières instances, avec 10 exécutions de durées égales à 10 mins pour chaque instance et pour chaque méthodes, les résultats sont les suivants : \\
 \subsection{En largeur d'abord :}
 \paragraph{}
-Les résultats sont présentés d'abord sous forme de tables puis illustrés dans des histogrammes : 
+Les résultats sont présentés d'abord sous forme de tables puis illustrés dans des histogrammes :
+\paragraph{Remarque 1 :} \label{BreadthIssueExperience} En ce qui concerne cet algorithme, nous avons eu une saturation de la mémoire après 1 min d'exécution, les résultats obtenus sont donc ceux observé avant le débordement.
 \subsubsection{Pour les instances satisfiables :}
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -88,7 +89,6 @@ Les résultats sont présentés d'abord sous forme de tables puis illustrés dan
 	\end{tabular}
 	\caption{Tableau récapitulatif des résultats pour les instances satisfiables}
 \end{table}
-\newpage
 \paragraph{}Pour mieux visualiser les données du tableau, le graphe suivant est proposé :\\
 
 \begin{figure}[H]
@@ -411,5 +411,13 @@ Les résultats sont présentés d'abord sous forme de tables puis illustrés dan
 %------------------------------------------------------------------------------
 
 \paragraph{}
-\section{Comparaison entres les quatres méthodes}
+\section{Comparaison entres les cinq méthodes}
 \paragraph{}
+Pour conclure ce chapitre, nous allons mainetant comparer 	les différentes méthodes selon les critères suivants : 
+\begin{itemize}
+	\item \textbf{Rapidité} 
+	\item \textbf{Espace mémoire utilisé}
+	\item \textbf{Taux de satisfiabilité}
+\end{itemize}
+\paragraph{}
+Nous avons remarqué à travers les nombreux tests que les deux catégories de stratégies de recherche avaient des forces et des lacunes, pour citer des exemples, la recherche par profondeur d'abord et en largeur d'abord de part sa simplicité, sont de bonnes stratégies de recherche, mais dont les limites sont vites atteintes, la première est certe peu gourmande en espace mémoire, mais ne trouve pas la solution en un temps assez rapide, la deuxième quant à elle nous garantie (si le coût pour passer d'un noeud à un autre est le même quelques soient les noeuds choisis) de trouver la solution avec le plus petit nombre de litéraux possible, mais en contre partie consomme énormemment de mémoire, ce qui peut conduire à un débordement de la mémoire très rapidement\label{BreadthIssueCompare}

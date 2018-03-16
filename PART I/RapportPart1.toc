@@ -81,24 +81,26 @@
 \contentsline {paragraph}{}{16}{section*.60}
 \contentsline {subsection}{\numberline {3.3.1}En largeur d'abord :}{16}{subsection.3.3.1}
 \contentsline {paragraph}{}{16}{section*.61}
-\contentsline {subsubsection}{Pour les instances satisfiables :}{16}{section*.62}
-\contentsline {paragraph}{}{17}{section*.64}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{18}{section*.66}
+\contentsline {paragraph}{Remarque 1 :}{16}{section*.62}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{17}{section*.63}
+\contentsline {paragraph}{}{17}{section*.65}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{18}{section*.67}
 \contentsline {subsection}{\numberline {3.3.2}Par profondeur d'abord :}{19}{subsection.3.3.2}
-\contentsline {subsubsection}{Pour les instances satisfiables :}{19}{section*.69}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{20}{section*.72}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{19}{section*.70}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{20}{section*.73}
 \contentsline {subsection}{\numberline {3.3.3}Cout uniforme}{21}{subsection.3.3.3}
-\contentsline {subsubsection}{Pour les instances satisfiables :}{21}{section*.75}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{22}{section*.78}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{21}{section*.76}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{22}{section*.79}
 \contentsline {subsection}{\numberline {3.3.4}Recherche gloutonne}{23}{subsection.3.3.4}
-\contentsline {subsubsection}{Pour les instances satisfiables :}{23}{section*.81}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{24}{section*.84}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{23}{section*.82}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{24}{section*.85}
 \contentsline {subsection}{\numberline {3.3.5}Algorithme A*}{25}{subsection.3.3.5}
-\contentsline {subsubsection}{Pour les instances satisfiables :}{25}{section*.87}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{26}{section*.90}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{25}{section*.88}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{26}{section*.91}
 \contentsline {section}{\numberline {3.4}Statistiques}{27}{section.3.4}
-\contentsline {paragraph}{}{27}{section*.93}
-\contentsline {paragraph}{}{29}{section*.98}
-\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{29}{section.3.5}
+\contentsline {paragraph}{}{27}{section*.94}
 \contentsline {paragraph}{}{29}{section*.99}
+\contentsline {section}{\numberline {3.5}Comparaison entres les cinq m\IeC {\'e}thodes}{29}{section.3.5}
+\contentsline {paragraph}{}{29}{section*.100}
+\contentsline {paragraph}{}{29}{section*.101}
 \contentsline {chapter}{\numberline {4}Conclusion}{30}{chapter.4}
