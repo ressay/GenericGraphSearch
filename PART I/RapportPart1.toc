@@ -25,34 +25,36 @@
 \contentsline {subsection}{\numberline {2.1.1}Repr\IeC {\'e}sentation du probl\IeC {\`e}me SAT}{5}{subsection.2.1.1}
 \contentsline {subsubsection}{Repr\IeC {\'e}sentation matricielle}{5}{section*.16}
 \contentsline {subsubsection}{Repr\IeC {\'e}sentation par \textit {Bitset}}{6}{section*.17}
-\contentsline {section}{\numberline {2.2}Conception et pseudo-code}{6}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Profondeur d'abord}{6}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Largeur d'abord}{6}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Recherche gloutonne }{6}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Algorithme A*}{6}{subsection.2.2.4}
-\contentsline {chapter}{\numberline {3}Exp\IeC {\'e}rimentations}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}Donn\IeC {\'e}s}{7}{section.3.1}
-\contentsline {paragraph}{}{7}{section*.18}
-\contentsline {paragraph}{}{7}{section*.19}
-\contentsline {subsection}{\numberline {3.1.1}Format DIMACS}{7}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Example}{8}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Type d'instances}{8}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Environement de travail}{9}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Machines}{9}{subsection.3.2.1}
-\contentsline {paragraph}{}{9}{section*.20}
-\contentsline {subsection}{\numberline {3.2.2}Outils utilis\IeC {\'e}s}{10}{subsection.3.2.2}
-\contentsline {subsubsection}{Langage de programmation : }{10}{section*.23}
-\contentsline {paragraph}{}{10}{section*.24}
-\contentsline {subsubsection}{IDE : }{10}{section*.25}
-\contentsline {paragraph}{IntelliJ Idea}{10}{section*.26}
-\contentsline {section}{\numberline {3.3}R\IeC {\'e}sultats}{10}{section.3.3}
-\contentsline {paragraph}{}{10}{section*.27}
-\contentsline {subsection}{\numberline {3.3.1}En largeur d'abord :}{10}{subsection.3.3.1}
-\contentsline {subsubsection}{Pour les instances satisfiables :}{10}{section*.28}
-\contentsline {paragraph}{}{11}{section*.30}
-\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{11}{section*.32}
-\contentsline {section}{\numberline {3.4}Statistiques}{12}{section.3.4}
-\contentsline {paragraph}{}{12}{section*.35}
-\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{12}{section.3.5}
-\contentsline {paragraph}{}{12}{section*.36}
-\contentsline {chapter}{\numberline {4}Conclusion}{13}{chapter.4}
+\contentsline {subsection}{\numberline {2.1.2}Repr\IeC {\'e}sentation des \IeC {\'e}tats}{6}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}D\IeC {\'e}veloppement des \IeC {\'e}tats}{7}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Conception et pseudo-code}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Gestion de la liste open}{9}{subsection.2.2.1}
+\contentsline {subsubsection}{Profondeur d'abord}{9}{section*.19}
+\contentsline {subsubsection}{Largeur d'abord}{9}{section*.20}
+\contentsline {subsubsection}{Recherche En se basant sur une fonction d'\IeC {\'e}valuation}{9}{section*.21}
+\contentsline {chapter}{\numberline {3}Exp\IeC {\'e}rimentations}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}Donn\IeC {\'e}s}{10}{section.3.1}
+\contentsline {paragraph}{}{10}{section*.22}
+\contentsline {paragraph}{}{10}{section*.23}
+\contentsline {subsection}{\numberline {3.1.1}Format DIMACS}{10}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Example}{11}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Type d'instances}{11}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Environement de travail}{12}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Machines}{12}{subsection.3.2.1}
+\contentsline {paragraph}{}{12}{section*.24}
+\contentsline {subsection}{\numberline {3.2.2}Outils utilis\IeC {\'e}s}{13}{subsection.3.2.2}
+\contentsline {subsubsection}{Langage de programmation : }{13}{section*.27}
+\contentsline {paragraph}{}{13}{section*.28}
+\contentsline {subsubsection}{IDE : }{13}{section*.29}
+\contentsline {paragraph}{IntelliJ Idea}{13}{section*.30}
+\contentsline {section}{\numberline {3.3}R\IeC {\'e}sultats}{13}{section.3.3}
+\contentsline {paragraph}{}{13}{section*.31}
+\contentsline {subsection}{\numberline {3.3.1}En largeur d'abord :}{13}{subsection.3.3.1}
+\contentsline {subsubsection}{Pour les instances satisfiables :}{13}{section*.32}
+\contentsline {paragraph}{}{14}{section*.34}
+\contentsline {subsubsection}{Pour les instances contradictoires ( non sastisfiables ) : }{14}{section*.36}
+\contentsline {section}{\numberline {3.4}Statistiques}{15}{section.3.4}
+\contentsline {paragraph}{}{15}{section*.39}
+\contentsline {section}{\numberline {3.5}Comparaison entres les quatres m\IeC {\'e}thodes}{15}{section.3.5}
+\contentsline {paragraph}{}{15}{section*.40}
+\contentsline {chapter}{\numberline {4}Conclusion}{16}{chapter.4}
