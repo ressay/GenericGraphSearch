@@ -21,7 +21,7 @@ public class SATHeuristicEstimator extends HeuristicEstimator
     @Override
     public double estimate(Node node) {
         SATNode satNode = (SATNode) node;
-        int numSatisfied = estimateBitSet(satNode);
+        int numSatisfied = estimateMatrix(satNode);
         satNode.setNumberOfClausesSatisfied(numSatisfied);
 //        double ratio = (double)(evaluator.getNumberOfClauses())/((double)evaluator.getNumberOfVariables());
 //        int diff = evaluator.getNumberOfAppearanceOfNode((SATNode) node);

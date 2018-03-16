@@ -14,7 +14,7 @@ public class BreadthStorage extends Storage
     LinkedList<Node> list = new LinkedList<>();
     @Override
     public void add(Node node) {
-        list.add(node);
+        list.addFirst(node);
     }
 
     @Override
@@ -24,6 +24,6 @@ public class BreadthStorage extends Storage
 
     @Override
     public Node getNext() {
-        return list.removeFirst();
+        return list.removeLast();
     }
 }
