@@ -2,7 +2,7 @@
 \section{Donnés}\label{dataSet}
 \paragraph{}Afin de tester notre programme nous avons opté pour l'utilisation de fichiers benchmark qui vont représenter des instances du problème, dorénavant, et pour être plus conforme avec la terminologie di problème, nous utiliserons le terme \textbf{INSTANCE} pour désigner ces dits fichiers.
 \paragraph{}
-Les instances nous sont présenté sous forme de fichiers au format \textbf{DIMACS}\footnote{Représentation convetionnelle d'une instance du problème SAT}(plus de détails dans \ref{par:dimacs}) et sont disponibles en téléchargement gratuitement et librement sur \cite{Benchmark}, et sont le fruit du travail de nombreux chercheurs dévoués.
+Les instances nous sont présentées sous forme de fichiers au format \textbf{DIMACS}\footnote{Représentation convetionnelle d'une instance du problème SAT}(plus de détails dans \ref{par:dimacs}) et sont disponibles en téléchargement gratuitement et librement sur \cite{Benchmark}, et sont le fruit du travail de nombreux chercheurs dévoués.
 \subsection{Format DIMACS}\label{par:dimacs}
 Un fichier en format \textbf{DIMACS} est un fichier dont l'extension est \textbf{.cnf}, et est structuré de la manière suivante : \\
 \begin{itemize}
@@ -24,12 +24,12 @@ p cnf 5 3\\
 1 -5 4 0\\
 -1 5 3 4 0\\
 -3 -4 0\\
-\newpage
 \subsection{Type d'instances}
 Dans \cite{Benchmark} nous avons à notre disposition deux types d'instances pour chaque taille du problème : \\
 \begin{itemize}
 	\item Un ensemble d'instances satisfiable dans un fichier dénommé UF\textbf{XX}-\textbf{YY},\\avec \textbf{XX} = nombre de litéraux et \textbf{YY} = nombre de clauses
 \end{itemize}
+\newpage
 \section{Environement de travail}
 \subsection{Machines}
 \paragraph{}
@@ -50,14 +50,75 @@ Pour les tests nous avons utilisé deux machines pour chaques groupes d'instance
 \subsection{Outils utilisés}
 \subsubsection{Langage de programmation : }
 \paragraph{}
-
+Nous avons opté pour le langage \href{https://fr.wikipedia.org/wiki/Java_(technique)}{Java}, car il offre une grande flexibilité et un facilite l'implémentation qui est due au fait qu'il soit totallement orienté-objet.
 \subsubsection{IDE : }
-\paragraph{}
-\paragraph{IntelliJ Idea} L'environement de dévelopement choisit est \href{URL}{IntelliJ IDEA}, spécialement dédié au développement en utilisant le langage \href{URL}{JAVA}, il est proposé par l'entreprise \href{https://www.jetbrains.com}{JetBrains} il est caractérisé par sa forte simplicité d'utilisation et les nombreuse plugins et extentions qui lui sont dédiées.
+\paragraph{IntelliJ Idea} L'environement de dévelopement choisit est \href{https://www.jetbrains.com/idea/}{IntelliJ IDEA}, spécialement dédié au développement en utilisant le langage \href{https://fr.wikipedia.org/wiki/Java_(technique)}{Java}, il est proposé par l'entreprise \href{https://www.jetbrains.com}{JetBrains} il est caractérisé par sa forte simplicité d'utilisation et les nombreuse plugins et extentions qui lui sont dédiées.
 
 \section{Résultats}\label{tests}
 \paragraph{}
+Pour chacun des groupes d'instancs(i.e UF75-325 et UUF75-325) nous avons lancé les machines dédiées sur les 10 premières instances, avec 10 exécutions de durées égales à 10 mins pour chaque instance et pour chaque méthodes, les résultats sont les suivants : \\
+\subsection{En largeur d'abord :}
+Les résultats sont présentés d'abord sous forme de tables puis illustrés dans des histogrammes : 
+\subsubsection{Pour les instances satisfiables :}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+	\centering
+	\label{table:Tab_BFS_Sat}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Fichiers test              & Instance & Maximum clauses & Taux  moyen de satisfiabilité \\ \hline
+		\multirow{10}{*}{UF75-325} & 1        & 153             & 42,83\%                       \\ \cline{2-4} 
+		& 2        & 152             & 43,94\%                       \\ \cline{2-4} 
+		& 3        & 147             & 42,31\%                       \\ \cline{2-4} 
+		& 4        & 140             & 42,25\%                       \\ \cline{2-4} 
+		& 5        & 146             & 42,46\%                       \\ \cline{2-4} 
+		& 6        & 146             & 43,05\%                       \\ \cline{2-4} 
+		& 7        & 144             & 41,91\%                       \\ \cline{2-4} 
+		& 8        & 160             & 44,37\%                       \\ \cline{2-4} 
+		& 9        & 152             & 43,04\%                       \\ \cline{2-4} 
+		& 10       & 144             & 42,58\%                       \\ \hline
+	\end{tabular}
+	\caption{Tableau récapitulatif des résultats pour les instances satisfiables}
+\end{table}
+\newpage
+\paragraph{}Pour mieux visualiser les données du tableau, le graphe suivant est proposé :\\
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{images/BFSUF75Graph.png}
+	\caption{Illustration des données de \ref{table:Tab_BFS_Sat}}
+\end{figure}
+
+\subsubsection{Pour les instances contradictoires ( non sastisfiables ) : }
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+	\centering
+	\label{table:Tab_BFS_Non_Sat}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Fichiers test               & Instance & Maximum clauses & Taux moyen de satisfiabilité \\ \hline
+		\multirow{10}{*}{UUF75-325} & 1        & 143             & 41,60\%                      \\ \cline{2-4} 
+		& 2        & 147             & 42,95\%                      \\ \cline{2-4} 
+		& 3        & 151             & 41,23\%                      \\ \cline{2-4} 
+		& 4        & 136             & 41,48\%                      \\ \cline{2-4} 
+		& 5        & 148             & 41,72\%                      \\ \cline{2-4} 
+		& 6        & 144             & 41,05\%                      \\ \cline{2-4} 
+		& 7        & 145             & 42,15\%                      \\ \cline{2-4} 
+		& 8        & 145             & 41,82\%                      \\ \cline{2-4} 
+		& 9        & 154             & 42,37\%                      \\ \cline{2-4} 
+		& 10       & 142             & 42,15\%                      \\ \hline
+	\end{tabular}
+	\caption{Tableau récapitulatif des résultats pour les instances non-satisfiables}
+\end{table}
+\newpage
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{images/BFSUUF75Graph.png}
+	\caption{Illustration des données de \ref{table:Tab_BFS_Non_Sat}}
+\end{figure}
+
 \section{Statistiques}
+
 \paragraph{}
 \section{Comparaison entres les quatres méthodes}
 \paragraph{}

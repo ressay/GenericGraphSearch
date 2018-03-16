@@ -2,6 +2,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Machine \textbf {A} pour les instances contradictoires\relax }}{10}{figure.caption.17}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Machine \textbf {B} pour les instances satisfiables\relax }}{11}{figure.caption.18}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Machine \textbf {A} pour les instances contradictoires\relax }}{9}{figure.caption.21}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Machine \textbf {B} pour les instances satisfiables\relax }}{9}{figure.caption.22}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Illustration des donn\IeC {\'e}es de \ref {table:Tab_BFS_Sat}\relax }}{11}{figure.caption.31}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Illustration des donn\IeC {\'e}es de \ref {table:Tab_BFS_Non_Sat}\relax }}{12}{figure.caption.34}
 \addvspace {10\p@ }

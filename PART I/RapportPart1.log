@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.3)  15 MAR 2018 21:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.3)  16 MAR 2018 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -67,6 +67,9 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen105
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
@@ -394,7 +397,7 @@ Language: frenchb 2016/02/13 v3.1l French support from the babel system
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2016/02/24 3.9q Babel common definitions
 \babel@savecnt=\count90
-\U@D=\dimen105
+\U@D=\dimen106
 )
 \l@acadian = a dialect from \language\l@french 
 \l@canadien = a dialect from \language\l@french 
@@ -407,13 +410,13 @@ Package babel Info: Making ? an active character on input line 345.
 \FBguillskip=\skip48
 \FBguill@level=\count91
 \FB@everypar=\toks18
-\FB@Mht=\dimen106
+\FB@Mht=\dimen107
 \std@mcc=\count92
 \dec@mcc=\count93
 \listindentFB=\skip49
 \labelwidthFB=\skip50
 \leftmarginFB=\skip51
-\parindentFFN=\dimen107
+\parindentFFN=\dimen108
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
@@ -442,11 +445,11 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
-\ex@=\dimen108
+\ex@=\dimen109
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen109
+\pmbraise@=\dimen110
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
@@ -463,7 +466,7 @@ LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen110
+\big@size=\dimen111
 LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count99
@@ -476,12 +479,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \column@=\count104
 \maxfields@=\count105
 \andhelp@=\toks22
-\eqnshift@=\dimen111
-\alignsep@=\dimen112
-\tagshift@=\dimen113
-\tagwidth@=\dimen114
-\totwidth@=\dimen115
-\lineht@=\dimen116
+\eqnshift@=\dimen112
+\alignsep@=\dimen113
+\tagshift@=\dimen114
+\tagwidth@=\dimen115
+\totwidth@=\dimen116
+\lineht@=\dimen117
 \@envbody=\toks23
 \multlinegap=\skip53
 \multlinetaggap=\skip54
@@ -498,8 +501,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen117
-\WF@size=\dimen118
+\wrapoverhang=\dimen118
+\WF@size=\dimen119
 \c@WF@wrappedlines=\count107
 \WF@box=\box30
 \WF@everypar=\toks27
@@ -519,8 +522,8 @@ File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 95.
 )
-\Gin@req@height=\dimen119
-\Gin@req@width=\dimen120
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
 )
 (/usr/share/texlive/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
@@ -530,9 +533,9 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@buffer=\toks31
 \SOUL@token=\toks32
 \SOUL@spaceskip=\skip55
-\SOUL@ttwidth=\dimen121
-\SOUL@uldp=\dimen122
-\SOUL@ulht=\dimen123
+\SOUL@ttwidth=\dimen122
+\SOUL@uldp=\dimen123
+\SOUL@ulht=\dimen124
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
@@ -591,7 +594,7 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen124
+\@linkdim=\dimen125
 \Hy@linkcounter=\count108
 \Hy@pagecounter=\count109
 
@@ -620,10 +623,10 @@ Package hyperref Info: Bookmarks ON on input line 4688.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen125
+\XeTeXLinkMargin=\dimen126
 \Fld@menulength=\count112
-\Field@Width=\dimen126
-\Fld@charsize=\dimen127
+\Field@Width=\dimen127
+\Fld@charsize=\dimen128
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -657,14 +660,14 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@cnth=\count118
 \Gm@cntv=\count119
 \c@Gm@tempcnt=\count120
-\Gm@bindingoffset=\dimen128
-\Gm@wd@mp=\dimen129
-\Gm@odd@mp=\dimen130
-\Gm@even@mp=\dimen131
-\Gm@layoutwidth=\dimen132
-\Gm@layoutheight=\dimen133
-\Gm@layouthoffset=\dimen134
-\Gm@layoutvoffset=\dimen135
+\Gm@bindingoffset=\dimen129
+\Gm@wd@mp=\dimen130
+\Gm@odd@mp=\dimen131
+\Gm@even@mp=\dimen132
+\Gm@layoutwidth=\dimen133
+\Gm@layoutheight=\dimen134
+\Gm@layouthoffset=\dimen135
+\Gm@layoutvoffset=\dimen136
 \Gm@dimlist=\toks33
 )
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
@@ -673,7 +676,7 @@ Package: parskip 2001/04/09 non-zero parskip adjustments
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip57
-\enit@outerparindent=\dimen136
+\enit@outerparindent=\dimen137
 \enit@toks=\toks34
 \enit@inbox=\box31
 \enitdp@description=\count121
@@ -688,8 +691,8 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count122
 \calc@Bcount=\count123
-\calc@Adimen=\dimen137
-\calc@Bdimen=\dimen138
+\calc@Adimen=\dimen138
+\calc@Bdimen=\dimen139
 \calc@Askip=\skip58
 \calc@Bskip=\skip59
 LaTeX Info: Redefining \setlength on input line 80.
@@ -700,8 +703,8 @@ LaTeX Info: Redefining \addtolength on input line 81.
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
 )
-\AM@pagewidth=\dimen139
-\AM@pageheight=\dimen140
+\AM@pagewidth=\dimen140
+\AM@pageheight=\dimen141
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
@@ -716,14 +719,14 @@ File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 \lst@gtempboxa=\box34
 \lst@token=\toks36
 \lst@length=\count127
-\lst@currlwidth=\dimen141
+\lst@currlwidth=\dimen142
 \lst@column=\count128
 \lst@pos=\count129
-\lst@lostspace=\dimen142
-\lst@width=\dimen143
+\lst@lostspace=\dimen143
+\lst@width=\dimen144
 \lst@newlines=\count130
 \lst@lineno=\count131
-\lst@maxwidth=\dimen144
+\lst@maxwidth=\dimen145
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
@@ -742,13 +745,13 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen145
-\captionmargin@=\dimen146
-\captionwidth=\dimen147
-\caption@tempdima=\dimen148
-\caption@indent=\dimen149
-\caption@parindent=\dimen150
-\caption@hangindent=\dimen151
+\captionmargin=\dimen146
+\captionmargin@=\dimen147
+\captionwidth=\dimen148
+\caption@tempdima=\dimen149
+\caption@indent=\dimen150
+\caption@parindent=\dimen151
+\caption@hangindent=\dimen152
 )
 \c@ContinuedFloat=\count134
 Package caption Info: float package is loaded.
@@ -782,12 +785,12 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \skiplength=\skip67
 \algomargin=\skip68
 \skipalgocfslide=\skip69
-\algowidth=\dimen152
-\inoutsize=\dimen153
-\inoutindent=\dimen154
-\interspacetitleruled=\dimen155
-\interspacealgoruled=\dimen156
-\interspacetitleboxruled=\dimen157
+\algowidth=\dimen153
+\inoutsize=\dimen154
+\inoutindent=\dimen155
+\interspacetitleruled=\dimen156
+\interspacealgoruled=\dimen157
+\interspacetitleboxruled=\dimen158
 \algocf@ruledwidth=\skip70
 \algocf@inoutbox=\box36
 \algocf@inputbox=\box37
@@ -810,11 +813,11 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algocf@algobox=\box43
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
-\TX@col@width=\dimen158
-\TX@old@table=\dimen159
-\TX@old@col=\dimen160
-\TX@target=\dimen161
-\TX@delta=\dimen162
+\TX@col@width=\dimen159
+\TX@old@table=\dimen160
+\TX@old@col=\dimen161
+\TX@target=\dimen162
+\TX@delta=\dimen163
 \TX@cols=\count139
 \TX@ftn=\toks37
 )
@@ -845,13 +848,13 @@ File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count140
-\scratchdimen=\dimen163
+\scratchdimen=\dimen164
 \scratchbox=\box44
 \nofMPsegments=\count141
 \nofMParguments=\count142
 \everyMPshowfont=\toks38
 \MPscratchCnt=\count143
-\MPscratchDim=\dimen164
+\MPscratchDim=\dimen165
 \MPnumerator=\count144
 \makeMPintoPDFobject=\count145
 \everyMPtoPDFconversion=\toks39
@@ -946,7 +949,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-<Page_garde.pdf, id=112, 597.50829pt x 845.0471pt>
+<Page_garde.pdf, id=116, 597.50829pt x 845.0471pt>
 File: Page_garde.pdf Graphic file (type pdf)
  <use Page_garde.pdf>
 Package pdftex.def Info: Page_garde.pdf used on input line 51.
@@ -957,7 +960,7 @@ File: Page_garde.pdf Graphic file (type pdf)
 Package pdftex.def Info: Page_garde.pdf used on input line 51.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<Page_garde.pdf, id=115, page=1, 597.50829pt x 845.0471pt>
+<Page_garde.pdf, id=119, page=1, 597.50829pt x 845.0471pt>
 File: Page_garde.pdf Graphic file (type pdf)
 
 <use Page_garde.pdf, page 1>
@@ -999,18 +1002,24 @@ l.55 \newpage
 Chapitre 1.
 [2
 
-] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
+]
+Overfull \hbox (4.65701pt too wide) in paragraph at lines 13--14
+[]\T1/bch/m/n/12 En co-si-dé-rant l'es-pace de re-cherche comme étant une ar-bo
+-res-cence, dont les noeuds
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+bch on input line 32.
+LaTeX Font Info:    Try loading font information for OMS+bch on input line 36.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
 File: omsbch.fd 
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
-) [5] (./chapter2.tex
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
+) [4] (./chapter2.tex
 Chapitre 2.
 
 Overfull \hbox (4.49945pt too wide) in paragraph at lines 5--6
@@ -1023,19 +1032,19 @@ Overfull \hbox (18.05899pt too wide) in paragraph at lines 25--25
 [][] 
  []
 
-[6
+[5
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 30--55
 
  []
 
-) [7] (./chapter3.tex
+) [6] (./chapter3.tex
 Chapitre 3.
 
-Overfull \hbox (1.09265pt too wide) in paragraph at lines 5--6
- [][] \T1/bch/m/n/12 Les ins-tances nous sont pré-senté sous forme de fi-chiers
- au for-mat \T1/bch/b/n/12 DI-MACS[][][][][]\T1/bch/m/n/12 (plus
+Overfull \hbox (11.78464pt too wide) in paragraph at lines 5--6
+ [][] \T1/bch/m/n/12 Les ins-tances nous sont pré-sen-tées sous forme de fi-chi
+ers au for-mat \T1/bch/b/n/12 DI-MACS[][][][][]\T1/bch/m/n/12 (plus
  []
 
 
@@ -1048,32 +1057,105 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--27
 
  []
 
-[8
+[7
 
-] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
+]
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
  []
 
-<images/machineWISS.png, id=255, 474.77374pt x 314.17375pt>
+[8] <images/machineWISS.png, id=260, 474.77374pt x 314.17375pt>
 File: images/machineWISS.png Graphic file (type png)
 
 <use images/machineWISS.png>
 Package pdftex.def Info: images/machineWISS.png used on input line 39.
 (pdftex.def)             Requested size: 356.07944pt x 235.62973pt.
 
-<images/machineYASSER.png, id=257, 533.995pt x 367.3725pt>
+<images/machineYASSER.png, id=262, 533.995pt x 367.3725pt>
 File: images/machineYASSER.png Graphic file (type png)
 
 <use images/machineYASSER.png>
 Package pdftex.def Info: images/machineYASSER.png used on input line 45.
 (pdftex.def)             Requested size: 355.10222pt x 244.29962pt.
- [10 <./images/machineWISS.png>] [11 <./images/machineYASSER.png>]) [12] (./cha
-pter4.tex
+ [9 <./images/machineWISS.png> <./images/machineYASSER.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+
+ []
+
+<images/BFSUF75Graph.png, id=288, 445.03105pt x 254.84685pt>
+File: images/BFSUF75Graph.png Graphic file (type png)
+
+<use images/BFSUF75Graph.png>
+Package pdftex.def Info: images/BFSUF75Graph.png used on input line 88.
+(pdftex.def)             Requested size: 426.79134pt x 244.41687pt.
+
+
+Package caption Warning: \label without proper reference on input line 67.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 11 undefined on input line
+ 89.
+
+
+Package caption Warning: \label without proper reference on input line 67.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 11 undefined on input line
+ 89.
+
+[11 <./images/BFSUF75Graph.png>]
+<images/BFSUUF75Graph.png, id=300, 444.08014pt x 249.14131pt>
+File: images/BFSUUF75Graph.png Graphic file (type png)
+
+<use images/BFSUUF75Graph.png>
+Package pdftex.def Info: images/BFSUUF75Graph.png used on input line 116.
+(pdftex.def)             Requested size: 426.79134pt x 239.45045pt.
+
+
+Package caption Warning: \label without proper reference on input line 97.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 12 undefined on input 
+line 117.
+
+
+Package caption Warning: \label without proper reference on input line 97.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 12 undefined on input 
+line 117.
+
+) [12 <./images/BFSUUF75Graph.png>] (./chapter4.tex
 Chapitre 4.
 ) [13
 
-] (./RapportPart1.lof)
+] (./RapportPart1.lof
+
+Package caption Warning: \label without proper reference on input line 67.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:Tab_BFS_Sat' on page 14 undefined on input line
+ 7.
+
+
+Package caption Warning: \label without proper reference on input line 97.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:Tab_BFS_Non_Sat' on page 14 undefined on input 
+line 8.
+
+)
 \tf@lof=\write5
 \openout5 = `RapportPart1.lof'.
 
@@ -1095,14 +1177,18 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 66.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 66.
 Package rerunfilecheck Info: File `RapportPart1.out' has not changed.
-(rerunfilecheck)             Checksum: 9E6D21B2B4DDA19E4A740093197F334C;1856.
+(rerunfilecheck)             Checksum: 87C1239E076506B3E5F6926088C672B9;1930.
+
+
+LaTeX Warning: There were undefined references.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 66.
  ) 
 Here is how much of TeX's memory you used:
- 13235 strings out of 494924
- 194118 string characters out of 6179709
- 341264 words of memory out of 5000000
- 16221 multiletter control sequences out of 15000+600000
+ 13273 strings out of 494924
+ 194890 string characters out of 6179709
+ 342463 words of memory out of 5000000
+ 16242 multiletter control sequences out of 15000+600000
  61519 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,18n,43p,861b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1118,10 +1204,10 @@ m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
 12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on RapportPart1.pdf (16 pages, 253488 bytes).
+Output written on RapportPart1.pdf (16 pages, 272869 bytes).
 PDF statistics:
- 389 PDF objects out of 1000 (max. 8388607)
- 321 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
- 247 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 419 PDF objects out of 1000 (max. 8388607)
+ 345 compressed objects within 4 object streams
+ 93 named destinations out of 1000 (max. 500000)
+ 265 words of extra memory for PDF output out of 10000 (max. 10000000)
 
