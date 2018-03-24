@@ -2,9 +2,6 @@ package SAT;
 
 import GenericGraphSearch.HeuristicEvaluator;
 import GenericGraphSearch.Node;
-import SATUI.Updatable;
-import mainPackage.TextDisplayer;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,12 +19,9 @@ public class SATEvaluator extends HeuristicEvaluator {
     protected int[] clausesFrequencies;
     protected BitSet[][] variablesBitSet;
     protected int numberOfVariables, numberOfClauses;
-    protected int tauxSat = 0;
     protected int maxSat = 0;
-    protected int maxDepth = 0;
     protected int[] map;
     public long numberOfEvaluation = 0;
-    public Updatable updatable = null;
 
     public SATEvaluator(int numberOfVariables, int numberOfClauses) {
         this.numberOfVariables = numberOfVariables;
@@ -152,13 +146,8 @@ public class SATEvaluator extends HeuristicEvaluator {
         int numSatisfied = satNode.getNumberOfClausesSatisfied();
         if (numSatisfied > maxSat) {
             maxSat = numSatisfied;
-            TextDisplayer.getInstance().showText("Depth : " + satNode.getDepth() + "|" + maxSat,
-                    TextDisplayer.MOREINFORMATIONS);
         }
         numberOfEvaluation++;
-        if(updatable != null)
-            updatable.update(satNode);
-//        updateClausesFrequencies(satNode.getBitSet());
         return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();
     }
 
