@@ -1,9 +1,6 @@
 # GenericGraphSearch
-Java implementation to graph search algorithms
-
-This is a generic implementation of graph search algorithms independent of the problem to solve.
-The [GenericGraphSearch](https://github.com/ressay/GenericGraphSearch/tree/master/src/GenericGraphSearch) package contains classes
-that implements these search algorithms.
+This is a Java implementation of graph search algorithms independent of the problem to solve.
+The [GraphSearch](https://github.com/ressay/GenericGraphSearch/blob/master/src/GenericGraphSearch/GraphSearch.java) class is an implementation of graph search algorithm. To use it extend classes from [GenericGraphSearch](https://github.com/ressay/GenericGraphSearch/tree/master/src/GenericGraphSearch) package to define the problem you want to solve using this algorithm.
 Classes you want to know about:
 ## OpenStorage
 Since graph search algorithms differs in their way of handling *open*, redefining `OpenStorage` changes the search algorithm. 
