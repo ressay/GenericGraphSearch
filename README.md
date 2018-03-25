@@ -11,10 +11,10 @@ The [Storages](https://github.com/ressay/GenericGraphSearch/tree/master/src/Stor
 
 | OpenStorage   | Algorithm     |
 | ------------- | ------------- |
-| DepthStorage  | Depth First Search  |
-| BreadthStorage  | Breadth First Search  |
-| UniformStorage  | Uniform Cost Search  |
-| AStarStorage  | A* Algorithm  |
+| [DepthStorage](https://github.com/ressay/GenericGraphSearch/blob/master/src/Storages/DepthStorage.java)  | Depth First Search  |
+| [BreadthStorage](https://github.com/ressay/GenericGraphSearch/blob/master/src/Storages/BreadthStorage.java)  | Breadth First Search  |
+| [UniformStorage](https://github.com/ressay/GenericGraphSearch/blob/master/src/Storages/UniformStorage.java)  | Uniform Cost Search  |
+| [AStarStorage](https://github.com/ressay/GenericGraphSearch/blob/master/src/Storages/AStarStorage.java)  | A* Algorithm  |
 
 ## Node
 Extend this class to define your problem's nodes and how successors are generated. See [SATNode](https://github.com/ressay/GenericGraphSearch/blob/master/src/SAT/SATNode.java) for an example of SAT problem `Node` implementation.
