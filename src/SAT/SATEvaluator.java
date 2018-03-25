@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 /**
+ * Evaluator for SAT problem
  * Created by ressay on 24/02/18.
  */
 public class SATEvaluator extends HeuristicEvaluator {
@@ -73,6 +74,48 @@ public class SATEvaluator extends HeuristicEvaluator {
         return se;
     }
 
+
+
+
+    @Override
+    protected void addingNodePreEvaluation(Node node)
+    {
+        SATNode satNode = (SATNode) node;
+        satNode.setIndex(map[node.getDepth()-1]);
+    }
+
+    @Override
+    public boolean isGoal(Node node) {
+        SATNode satNode = (SATNode) node;
+        int numSatisfied = satNode.getNumberOfClausesSatisfied();
+        if (numSatisfied > maxSat) {
+            maxSat = numSatisfied;
+        }
+        numberOfEvaluation++;
+        return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();
+    }
+
+
+    public int getNumberOfSatisfiedClauses(LinkedList<Node> nodes)
+    {
+        int cpt = 0;
+        int j;
+        for (int i = 0;i < getNumberOfClauses();i++) {
+            j = 0;
+            boolean SATc = false;
+            for (Node node :  nodes) {
+                if (clauses[i][getVarFromDepth(j+1)] * ((SATNode) node).getValue() > 0) {
+                    SATc = true;
+                    break;
+                }
+                j++;
+            }
+            if (SATc)
+                cpt++;
+        }
+        return cpt;
+    }
+
     protected void generateRandomMap()
     {
         map = new int[getNumberOfVariables()];
@@ -130,46 +173,6 @@ public class SATEvaluator extends HeuristicEvaluator {
 
     public int getDepth() {
         return getNumberOfVariables();
-    }
-
-
-    @Override
-    protected void addingNodePreEvaluation(Node node)
-    {
-        SATNode satNode = (SATNode) node;
-        satNode.setIndex(map[node.getDepth()-1]);
-    }
-
-    @Override
-    public boolean isGoal(Node node) {
-        SATNode satNode = (SATNode) node;
-        int numSatisfied = satNode.getNumberOfClausesSatisfied();
-        if (numSatisfied > maxSat) {
-            maxSat = numSatisfied;
-        }
-        numberOfEvaluation++;
-        return satNode.getNumberOfClausesSatisfied() == getNumberOfClauses();
-    }
-
-
-    public int getNumberOfSatisfiedClauses(LinkedList<Node> nodes)
-    {
-        int cpt = 0;
-        int j;
-        for (int i = 0;i < getNumberOfClauses();i++) {
-            j = 0;
-            boolean SATc = false;
-            for (Node node :  nodes) {
-                if (clauses[i][getVarFromDepth(j+1)] * ((SATNode) node).getValue() > 0) {
-                    SATc = true;
-                    break;
-                }
-                j++;
-            }
-            if (SATc)
-                cpt++;
-        }
-        return cpt;
     }
 
     public int getNumberOfVariables() {

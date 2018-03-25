@@ -1,15 +1,15 @@
 package Storages;
 
 import GenericGraphSearch.Node;
-import GenericGraphSearch.Storage;
+import GenericGraphSearch.OpenStorage;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
+ * manages open storage as FIFO for breadth first search
  * Created by ressay on 24/02/18.
  */
-public class BreadthStorage extends Storage
+public class BreadthStorage extends OpenStorage
 {
     LinkedList<Node> list = new LinkedList<>();
     @Override

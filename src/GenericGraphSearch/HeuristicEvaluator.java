@@ -5,16 +5,30 @@ package GenericGraphSearch;
  */
 abstract public class HeuristicEvaluator extends Evaluator
 {
+    /*
+    Estimates heuristic value of a given node
+     */
     private HeuristicEstimator estimator = null;
 
-    public HeuristicEstimator getEstimator() {
-        return estimator;
+    /*
+    Override evaluateF from evaluating cost only to evaluating cost and heuristic.
+    Cost can be evaluated in addingNodePreEvaluation or addingNodePostEvaluation.
+     */
+    @Override
+    void evaluateF(Node node)
+    {
+        addingNodePreEvaluation(node);
+        // estimate heuristic.
+        if(getEstimator() != null)
+            getEstimator().estimate(node);
+        else
+            node.setH(0);
+        addingNodePostEvaluation(node);
     }
 
-    public void setEstimator(HeuristicEstimator estimator) {
-        this.estimator = estimator;
-    }
-
+    /*
+    Methods to be Overridden if necessary.
+     */
     protected void addingNodePostEvaluation(Node node)
     {
 
@@ -25,13 +39,15 @@ abstract public class HeuristicEvaluator extends Evaluator
 
     }
 
-    void evaluateF(Node node)
-    {
-        addingNodePreEvaluation(node);
-        if(getEstimator() != null)
-            getEstimator().estimate(node);
-        else
-            node.setH(0);
-        addingNodePostEvaluation(node);
+    public HeuristicEstimator getEstimator() {
+        return estimator;
     }
+
+    public void setEstimator(HeuristicEstimator estimator) {
+        this.estimator = estimator;
+    }
+
+
+
+
 }

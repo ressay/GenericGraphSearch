@@ -6,6 +6,7 @@ import java.util.BitSet;
 import java.util.LinkedList;
 
 /**
+ * A node used for SAT problem.
  * Created by ressay on 24/02/18.
  */
 public class SATNode extends Node
@@ -15,12 +16,12 @@ public class SATNode extends Node
     private BitSet bitSet;
     private int index;
 
-
     public SATNode(Node parent) {
         super(parent);
         bitSet = new BitSet();
 
     }
+
 
     @Override
     public LinkedList<Node> getSuccessors() {

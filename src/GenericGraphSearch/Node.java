@@ -8,13 +8,21 @@ import java.util.LinkedList;
  */
 abstract public class Node
 {
+    // parent node
     private Node parent = null;
+    // depth of the node
     private int depth = 0;
+    // g stores cost value to reach node, h stores heuristic value of node
     private double g=0,h=0;
 
     public Node(Node parent) {
         this.parent = parent;
     }
+
+    /*
+    Method to be overridden that generates successors of this node
+     */
+    public abstract LinkedList<Node> getSuccessors();
 
     public Node getParent() {
         return parent;
@@ -32,6 +40,9 @@ abstract public class Node
         this.depth = depth;
     }
 
+    /*
+    returns LinkedList with all nodes from current to root
+     */
     public LinkedList<Node> getNodesToRoot()
     {
         LinkedList<Node> nodes = new LinkedList<>();
@@ -41,15 +52,15 @@ abstract public class Node
         return nodes;
     }
 
-    public abstract LinkedList<Node> getSuccessors();
 
-    // returns cost function
+
+    // returns cost value
     public double getG()
     {
         return g;
     }
 
-    // returns heuristic function
+    // returns heuristic value
     public double getH()
     {
         return h;
