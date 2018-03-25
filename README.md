@@ -9,8 +9,14 @@ Classes you want to know about:
 Since graph search algorithms differs in their way of handling *open*, redefining `OpenStorage` changes the search algorithm. 
 The [Storages](https://github.com/ressay/GenericGraphSearch/tree/master/src/Storages) package contains implementation of these Storages:
 | OpenStorage   | Algorithm     |
+
 | ------------- | ------------- |
+
 | DepthStorage  | Depth First Search  |
+
 | BreadthStorage  | Breadth First Search  |
+
 | UniformStorage  | Uniform Cost Search  |
+
 | AStarStorage  | A* Algorithm  |
+
