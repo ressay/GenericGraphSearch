@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SATUI.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1016.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SATUI.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -22,7 +24,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="787.0">
+      <AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="1017.0">
          <children>
             <TabPane prefHeight="404.0" prefWidth="544.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
@@ -57,8 +59,8 @@
             <ProgressBar fx:id="progress" layoutX="24.0" layoutY="425.0" prefHeight="20.0" prefWidth="518.0" progress="0.0" />
             <TextField fx:id="attemptsField" layoutX="592.0" layoutY="461.0" prefHeight="26.0" prefWidth="85.0" />
             <TextField fx:id="timeField" layoutX="593.0" layoutY="501.0" prefHeight="26.0" prefWidth="85.0" />
-            <Button fx:id="fileButton" layoutX="589.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="File" />
-            <Text fx:id="fileText" layoutX="585.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="no file selected" />
+            <Button fx:id="fileButton" layoutX="590.0" layoutY="195.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="File" />
+            <Text fx:id="fileText" layoutX="585.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="no file selected" />
             <Text layoutX="394.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="number of attempts" />
             <Text layoutX="394.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="time per attempt (seconds)" />
             <Text layoutX="56.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="method" />
@@ -68,6 +70,25 @@
             <CheckBox fx:id="attemptCh" layoutX="590.0" layoutY="65.0" mnemonicParsing="false" text="Attempts" />
             <CheckBox layoutX="590.0" layoutY="95.0" mnemonicParsing="false" text="XYChart" fx:id="xyCh" />
             <CheckBox fx:id="clausesCh" layoutX="590.0" layoutY="125.0" mnemonicParsing="false" text="Clauses satisfied" />
+            <ComboBox fx:id="filesChoice" layoutX="569.0" layoutY="272.0" prefHeight="26.0" prefWidth="134.0" />
+            <Label layoutX="599.0" layoutY="243.0" text="Instances:" />
+            <Text fx:id="fileText1" layoutX="569.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add file to instances" />
+            <Label layoutX="828.0" layoutY="36.0" text="Parameters:" />
+            <GridPane fx:id="gridParams" layoutX="738.0" layoutY="75.0" prefHeight="379.0" prefWidth="267.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
          </children>
       </AnchorPane>
    </children>

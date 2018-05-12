@@ -2,13 +2,13 @@
 \section{Structures de données}
 \paragraph{}
 La stratégie de recherche avec graphe requiert une représentation des entrées du problème, des états construisant une solution potentielle à ce dernier ainsi que le développement de ces états.
-\subsection{Représentation du problème SAT}
+\subsection{Représentation du problème HeuristicSearch.SAT}
 \paragraph{}
-Une instance du problème SAT peut être considérée comme un ensemble de clauses, chacune de ces clauses est une disjonction de littéraux. Dans ce rapport Nous proposons deux structures différentes pour les représenter que nous comparerons par la suite.
+Une instance du problème HeuristicSearch.SAT peut être considérée comme un ensemble de clauses, chacune de ces clauses est une disjonction de littéraux. Dans ce rapport Nous proposons deux structures différentes pour les représenter que nous comparerons par la suite.
 \subsubsection{Représentation matricielle}
 \paragraph{}
 Une première représentation serait d‘associer à chaque clause de l’instance un tableau de taille égale au nombre de variables logiques utilisés dont la i\up{ième}  case aura la valeur 1 si la variable \textit{i} est présente dans la clause, -1 si sa négation est présente, 0 sinon. Ainsi en représentant toutes les clauses on obtient une matrice dont chaque ligne est associée à une clause.\\
-L’exemple suivant montre une instance du problème SAT et sa représentation matricielle:
+L’exemple suivant montre une instance du problème HeuristicSearch.SAT et sa représentation matricielle:
 \begin{flalign*}
 x_{1} \lor \neg x_{2} \lor x_{5} \\
 \neg x_{2} \lor x_{4} \lor x_{5} \\
@@ -59,7 +59,7 @@ Pour le même exemple vu précédemment on obtient les \textit{Bitsets} suivants
 
 \subsection{Représentation des états}
 \paragraph{}
-Une solution à une instance du problème SAT se réduit à l’assignation des valeurs de vérités aux variables logiques de cette instance. On peut considérer un état dans l’espace de recherche comme étant le choix de la valeur de vérité d’une des variables logiques, on obtient après une succession de choix une solution au problème qui peut être positive si les valeurs assignés sont consistante avec les clauses de l’instance, négative sinon. Nous allons représenter un état avec un noeud qui contient le numéro de la variable choisie, multiplié par -1 pour désigner l’assignation de la valeur $faux$ à la variable, il reste inchangé sinon.\\
+Une solution à une instance du problème HeuristicSearch.SAT se réduit à l’assignation des valeurs de vérités aux variables logiques de cette instance. On peut considérer un état dans l’espace de recherche comme étant le choix de la valeur de vérité d’une des variables logiques, on obtient après une succession de choix une solution au problème qui peut être positive si les valeurs assignés sont consistante avec les clauses de l’instance, négative sinon. Nous allons représenter un état avec un noeud qui contient le numéro de la variable choisie, multiplié par -1 pour désigner l’assignation de la valeur $faux$ à la variable, il reste inchangé sinon.\\
 \begin{center}
 	\begin{forest} [
 		[5[$x_{5} \leftarrow vrai$]]
@@ -70,7 +70,7 @@ Une solution à une instance du problème SAT se réduit à l’assignation des 
 \newpage
 \subsection{Développement des états}
 \paragraph{}
-A partir de chaque état on peut faire le choix de la valeur de vérité d’une variable logique choisie aléatoirement. Le développement d’un noeud donne deux successeurs, un pour chaque valeur de vérité assignée à la prochaine variable. On obtient après l’exploration de l’espace de recherche un arbre d’états, l’exemple suivant est un arbre associé à une instance SAT contenant trois variables.\\
+A partir de chaque état on peut faire le choix de la valeur de vérité d’une variable logique choisie aléatoirement. Le développement d’un noeud donne deux successeurs, un pour chaque valeur de vérité assignée à la prochaine variable. On obtient après l’exploration de l’espace de recherche un arbre d’états, l’exemple suivant est un arbre associé à une instance HeuristicSearch.SAT contenant trois variables.\\
 \begin{center}
 	\begin{forest} [
 		[2
@@ -132,7 +132,7 @@ struct noeud* parent;
 \end{lstlisting}
 
 \paragraph{Remarque1:}\label{BreadthIssue} Un inconvénient que nous avons déjà cité de la recherche en largeur d’abord était la saturation rapide de la mémoire, cela est dû au fait de garder tous les noeuds dans la mémoire. Ce problème est évité dans la recherche en profondeur d’abord car dès l’évaluation d’un noeud se trouvant dans la profondeur maximale, ce dernier est supprimé de la mémoire. notons que la structure du noeud déjà présenté ne contient pas les adresses de ses successeurs, ceci nous permet d’éviter de garder tous l’arbre d’états dans la mémoire mais juste les branche susceptible d’être évaluée par la suite.\\~\\
-\paragraph{Remarque2:} Dans la deuxième représentation du problème SAT, une optimisation serait d’ajouter un $Bitset$ dans la structure du noeud et y garder les clauses qu’il satisfait ainsi que celles de ses parents, celui là peut être obtenu en appliquant l’opération OU logique sur le $Bitset$ du noeud parent et celui du littéral choisi.\\
+\paragraph{Remarque2:} Dans la deuxième représentation du problème HeuristicSearch.SAT, une optimisation serait d’ajouter un $Bitset$ dans la structure du noeud et y garder les clauses qu’il satisfait ainsi que celles de ses parents, celui là peut être obtenu en appliquant l’opération OU logique sur le $Bitset$ du noeud parent et celui du littéral choisi.\\
 \begin{center}
 	\begin{minipage}{0.5\textwidth}
 		\centering
@@ -186,7 +186,7 @@ Dans cette partie nous allons présenter l’implémentation des algorithmes de 
 \paragraph{}
 La différence entre les algorithmes de recherche réside dans la manière dont on sélectionne le noeud à évaluer, ligne 4 dans l’algorithme si dessus, ainsi que l’estimation du coût et de l’heuristique, s’ils existent, avant l’insertion, ligne 10.\\
 \paragraph{}
-En se basant sur cette algorithme nous avons implémenter une procédure de recherche générique prenant en paramètre un type de gestion de liste, un estimateur de coût et d’heuristique et les entrés de l’instance SAT afin d’évaluer les noeuds.
+En se basant sur cette algorithme nous avons implémenter une procédure de recherche générique prenant en paramètre un type de gestion de liste, un estimateur de coût et d’heuristique et les entrés de l’instance HeuristicSearch.SAT afin d’évaluer les noeuds.
 \subsection{Gestion de la liste open}
 \paragraph{}
 
@@ -328,10 +328,10 @@ Les noeuds sont organisé dans une structure de tas\footnote{un tas est un arbre
 La fonction d’évaluation f d’un noeud n est généralement définit à l’aide de deux autres fonctions g et h. La première désigne le coût nécessaire pour atteindre le noeud n à partir de la racine, tandis que la deuxième est une heuristique qui estime le coût restant avant d’arriver au but.
 \subsubsection{Recherche gloutonne}
 \paragraph{}
-La fonction d’évaluation dans ce cas f est égale à h, on se contente de la valeur estimé par l’heuristique pour décider le prochain noeud à développer. Une heuristique pour le problème SAT qui peut mesurer la distance des noeuds par rapport au noeud but serait de calculer le nombre de clauses pas encore satisfaites, le noeud avec la valeur minimale de cette heuristique est le noeud qui satisfait le plus de clauses et donc le plus proche de satisfaire toutes les clauses.
+La fonction d’évaluation dans ce cas f est égale à h, on se contente de la valeur estimé par l’heuristique pour décider le prochain noeud à développer. Une heuristique pour le problème HeuristicSearch.SAT qui peut mesurer la distance des noeuds par rapport au noeud but serait de calculer le nombre de clauses pas encore satisfaites, le noeud avec la valeur minimale de cette heuristique est le noeud qui satisfait le plus de clauses et donc le plus proche de satisfaire toutes les clauses.
 \subsubsection{Recherche à coût uniforme}
 \paragraph{}
-Contrairement à la recherche gloutonne, la recherche à coût uniforme n’utilise que la fonction g, permettant ainsi de développer le noeud le plus proche de la racine en terme de coût. Cependant trouver une fonction d’estimation du coût pour le problème SAT s’avère délicat comme on ne peut pas vraiment déterminer une distance entre un noeud et la racine. Ceci dit, une fonction de coût qui calcule le nombre de clauses devant être satisfaite par un noeud mais qui sont déjà satisfaite par ses parents peut être utilisé. Cela représente la perte d’une branche contenant des littéraux qui satisfont les même clauses de l’instance SAT, plus le coût est élevé, moins les chances que cette branche nous mène au but.
+Contrairement à la recherche gloutonne, la recherche à coût uniforme n’utilise que la fonction g, permettant ainsi de développer le noeud le plus proche de la racine en terme de coût. Cependant trouver une fonction d’estimation du coût pour le problème HeuristicSearch.SAT s’avère délicat comme on ne peut pas vraiment déterminer une distance entre un noeud et la racine. Ceci dit, une fonction de coût qui calcule le nombre de clauses devant être satisfaite par un noeud mais qui sont déjà satisfaite par ses parents peut être utilisé. Cela représente la perte d’une branche contenant des littéraux qui satisfont les même clauses de l’instance HeuristicSearch.SAT, plus le coût est élevé, moins les chances que cette branche nous mène au but.
 
 \begin{minipage}{0.5\textwidth}
 	\centering
@@ -355,9 +355,9 @@ $\rightarrow$
 \subsubsection{Algorithme A*}
 \paragraph{}
 L’algorithme A* combine les deux fonctions g et h citées précédemment afin d’évaluer les noeuds en prenant en considération le nombre de clauses déjà satisfaites ainsi que le coût de la branche dans laquelle il se trouve.
-\subsection{Évaluateur SAT}
+\subsection{Évaluateur HeuristicSearch.SAT}
 \paragraph{}
-Dans cette partie nous présentons deux méthodes d’évaluation du noeud but basé sur les deux structures représentatives des instances SAT citées précédemment.
+Dans cette partie nous présentons deux méthodes d’évaluation du noeud but basé sur les deux structures représentatives des instances HeuristicSearch.SAT citées précédemment.
 \subsubsection{Évaluation par matrice}
 \paragraph{}
 La première méthode consiste à parcourir la matrice des clauses et chercher pour chaque clause si un de ses littéraux a été évalué vrai par les noeuds de la solution. Si dessous l’algorithme correspondant.\\
@@ -387,7 +387,7 @@ La première méthode consiste à parcourir la matrice des clauses et chercher p
 \end{algorithm}
 \subsubsection{Évaluation par Bitset}
 \paragraph{}
-Comme vu précédemment, en utilisant la structure Bitset pour représenter l’instance SAT chaque noeud contient un Bitset des clauses satisfaites par sa branche, il suffit donc de calculer le nombre de bits à 1 pour décider si c’est un noeud but ou pas. Nous utilisons pour cela l’algorithme “Hamming Weight” permettant de calculer le nombre de bits à 1 dans un entier en une complexité constante.
+Comme vu précédemment, en utilisant la structure Bitset pour représenter l’instance HeuristicSearch.SAT chaque noeud contient un Bitset des clauses satisfaites par sa branche, il suffit donc de calculer le nombre de bits à 1 pour décider si c’est un noeud but ou pas. Nous utilisons pour cela l’algorithme “Hamming Weight” permettant de calculer le nombre de bits à 1 dans un entier en une complexité constante.
 
 
 \begin{center}

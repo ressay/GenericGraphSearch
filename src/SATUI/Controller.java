@@ -1,12 +1,5 @@
 package SATUI;
 
-import GenericGraphSearch.HeuristicEstimator;
-import GenericGraphSearch.Storage;
-import Storages.AStarStorage;
-import Storages.BreadthStorage;
-import Storages.DepthStorage;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,17 +8,15 @@ import javafx.scene.chart.*;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable
 {
@@ -92,6 +83,11 @@ public class Controller implements Initializable
     @FXML
     private CheckBox clausesCh;
 
+    @FXML
+    private GridPane gridParams;
+
+    @FXML
+    private ComboBox<File> filesChoice;
 
     List<File> listOfFiles = null;
 
@@ -111,19 +107,30 @@ public class Controller implements Initializable
     ArrayList<Number> clausesYValues = new ArrayList<>();
 
     SATToUI toUI = new SATToUI(this);
+    String[] bsoParams = {"Number of bees","Max chances","Flip","Max Iterations","Local Iterations"};
+    double[] bsoDefaults = {30,6,7,200,30};
+    String[] acoParams = {"Number of ants","init value","ro","alpha","beta","q","Max Iterations"};
+    double[] acoDefaults = {30, 0.1,  0.7, 1, 1, 0.8, 500};
+    HashMap<String,TextField> bsoMap = new HashMap<>();
+    HashMap<String,TextField> acoMap = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        initBsoParams();
+        initAcoParams();
+
         initCheckBoxes();
         initDigitTextFields();
         initCharts();
         informationsArea.setEditable(false);
+        informationsArea.setWrapText(true);
 
         heuristicOptions.getItems().addAll(toUI.heuristics);
         heuristicOptions.getSelectionModel().select(0);
 
-        methodOptions.getItems().addAll("Depth search","Breadth search","Heuristic search");
+        methodOptions.getItems().addAll("Depth search","Breadth search","Heuristic search",
+                "BSO","ACO","BSODynamic");
         methodOptions.getSelectionModel().select(0);
         methodOptions.setOnAction(actionEvent -> {
             if(methodOptions.getSelectionModel().isSelected(2))
@@ -136,6 +143,19 @@ public class Controller implements Initializable
                 heuristicOptions.setVisible(false);
                 heuristicText.setVisible(false);
             }
+            if(methodOptions.getSelectionModel().isSelected(3))
+            {
+                activateParams(bsoMap,bsoParams);
+            }
+            else
+            if(methodOptions.getSelectionModel().isSelected(4))
+            {
+                activateParams(acoMap,acoParams);
+            }
+            else
+            {
+                disactivateParams();
+            }
         });
 
         runButton.setOnAction(actionEvent -> {
@@ -143,6 +163,31 @@ public class Controller implements Initializable
                 toUI.runSolver();
         });
 
+        File[] files = new File[15];
+        for (int i = 1; i < 6; i++)
+        {
+            files[i-1] = new File("UF75.325.100/uf75-0"+i+".cnf");
+        }
+
+        for (int i = 1; i < 6; i++)
+        {
+            files[5+i-1] = new File("uf100-430/uf100-0"+i+".cnf");
+        }
+
+        for (int i = 1; i < 6; i++)
+        {
+            files[10+i-1] = new File("uf200-860/uf200-0"+i+".cnf");
+        }
+
+        filesChoice.getItems().addAll(files);
+        filesChoice.setOnAction(actionEvent -> {
+            File file = filesChoice.getSelectionModel().getSelectedItem();
+            if(listOfFiles == null)
+                listOfFiles = new LinkedList<>();
+            listOfFiles.clear();
+            listOfFiles.add(file);
+            fileText.setText(listOfFiles.get(0).getName());
+        });
         fileButton.setOnAction(actionEvent -> {
             final FileChooser fileChooser = new FileChooser();
             listOfFiles =
@@ -154,7 +199,67 @@ public class Controller implements Initializable
                     fileText.setText(listOfFiles.size()+" files chosen");
             else
                 fileText.setText("no file selected");
+            filesChoice.getItems().addAll(listOfFiles);
         });
+
+    }
+
+    void initBsoParams()
+    {
+        int i = 0;
+        for(String s : bsoParams)
+            bsoMap.put(s,new TextField(bsoDefaults[i++]+""));
+    }
+
+    void initAcoParams()
+    {
+        int i = 0;
+        for(String s : acoParams)
+            acoMap.put(s,new TextField(acoDefaults[i++]+""));
+    }
+
+    public double[] getBsoParams()
+    {
+        return getParams(bsoMap,bsoParams,bsoDefaults);
+    }
+
+    public double[] getAcoParams()
+    {
+        return getParams(acoMap,acoParams,acoDefaults);
+    }
+
+    public double[] getParams(HashMap<String,TextField> map, String[] keys, double[] defaults)
+    {
+        int i =0;
+        double[] params = new double[keys.length];
+        for(String key : keys)
+        {
+            System.out.println("params: " + key + "  " + map.get(key).getText());
+            if(map.get(key).getText().length() > 0)
+                params[i] = Double.parseDouble(map.get(key).getText());
+            else
+                params[i] = defaults[i];
+            i++;
+        }
+        return params;
+    }
+
+
+    void activateParams(HashMap<String,TextField> map,String[] keys)
+    {
+        gridParams.getChildren().clear();
+        gridParams.setVgap(20);
+        int i=0;
+        for (String key : keys)
+        {
+            gridParams.add(new Label(key),0,i);
+            gridParams.add(map.get(key),1,i++);
+        }
+    }
+
+    void disactivateParams()
+    {
+        gridParams.getChildren().clear();
     }
 
     void restartPlots()
@@ -202,6 +307,20 @@ public class Controller implements Initializable
 
     void initDigitTextFields()
     {
+        for (String key : bsoParams)
+            bsoMap.get(key).textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!newValue.matches("\\d*")) {
+                    bsoMap.get(key).setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            });
+
+        for (String key : acoParams)
+            acoMap.get(key).textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!newValue.matches("\\d*")) {
+                    acoMap.get(key).setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            });
+
         attemptsField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 attemptsField.setText(newValue.replaceAll("[^\\d]", ""));
@@ -214,6 +333,8 @@ public class Controller implements Initializable
                 timeField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
+
+
     }
 
 

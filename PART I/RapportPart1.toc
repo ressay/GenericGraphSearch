@@ -4,7 +4,7 @@
 \contentsline {paragraph}{}{2}{section*.2}
 \contentsline {section}{\numberline {1.2}D\IeC {\'e}finitions}{2}{section.1.2}
 \contentsline {paragraph}{}{2}{section*.3}
-\contentsline {subsection}{\numberline {1.2.1}Probl\IeC {\`e}me SAT}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.1}Probl\IeC {\`e}me HeuristicSearch.SAT}{2}{subsection.1.2.1}
 \contentsline {paragraph}{}{2}{section*.4}
 \contentsline {subsection}{\numberline {1.2.2}Strat\IeC {\'e}gie de recherche dans l'espace des \IeC {\'e}tats}{3}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Strat\IeC {\'e}gie de rercherche aveugle}{3}{subsection.1.2.3}
@@ -23,7 +23,7 @@
 \contentsline {chapter}{\numberline {2}Impl\IeC {\'e}mentation}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Structures de donn\IeC {\'e}es}{5}{section.2.1}
 \contentsline {paragraph}{}{5}{section*.16}
-\contentsline {subsection}{\numberline {2.1.1}Repr\IeC {\'e}sentation du probl\IeC {\`e}me SAT}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}Repr\IeC {\'e}sentation du probl\IeC {\`e}me HeuristicSearch.SAT}{5}{subsection.2.1.1}
 \contentsline {paragraph}{}{5}{section*.17}
 \contentsline {subsubsection}{Repr\IeC {\'e}sentation matricielle}{5}{section*.18}
 \contentsline {paragraph}{}{5}{section*.19}
@@ -46,7 +46,7 @@
 \contentsline {paragraph}{}{9}{section*.33}
 \contentsline {subsubsection}{Recherche En se basant sur une fonction d'\IeC {\'e}valuation}{9}{section*.34}
 \contentsline {paragraph}{}{9}{section*.35}
-\contentsline {paragraph}{Liste tri\IeC {\'e}e}{9}{section*.36}
+\contentsline {paragraph}{Liste tri\IeC {\'e}e}{10}{section*.36}
 \contentsline {paragraph}{Tas}{10}{section*.37}
 \contentsline {subsection}{\numberline {2.2.2}Fonction d'\IeC {\'e}valuation}{10}{subsection.2.2.2}
 \contentsline {paragraph}{}{10}{section*.38}
@@ -56,7 +56,7 @@
 \contentsline {paragraph}{}{10}{section*.42}
 \contentsline {subsubsection}{Algorithme A*}{11}{section*.43}
 \contentsline {paragraph}{}{11}{section*.44}
-\contentsline {subsection}{\numberline {2.2.3}\IeC {\'E}valuateur SAT}{11}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.3}\IeC {\'E}valuateur HeuristicSearch.SAT}{11}{subsection.2.2.3}
 \contentsline {paragraph}{}{11}{section*.45}
 \contentsline {subsubsection}{\IeC {\'E}valuation par matrice}{11}{section*.46}
 \contentsline {paragraph}{}{11}{section*.47}

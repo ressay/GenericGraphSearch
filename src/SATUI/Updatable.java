@@ -1,6 +1,6 @@
 package SATUI;
 
-import SAT.SATNode;
+import HeuristicSearch.SAT.SATNode;
 
 /**
  * Created by ressay on 11/03/18.

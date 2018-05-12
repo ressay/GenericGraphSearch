@@ -48,5 +48,5 @@ for str in outLines:
 wfile.close()
 file.close()
 outF.close()
-#Run the SAT solver with the new KB
+#Run the HeuristicSearch.SAT solver with the new KB
 os.system(" ./ubcsat -alg saps -solve -i new.cnf" )

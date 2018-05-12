@@ -1,49 +1,78 @@
 package mainPackage;
 
-import GenericGraphSearch.GraphSearch;
-import GenericGraphSearch.Node;
-import GenericGraphSearch.Storage;
+import HeuristicSearch.GenericGraphSearch.GraphSearch;
+import HeuristicSearch.GenericGraphSearch.Node;
+import HeuristicSearch.GenericGraphSearch.Storage;
 import PlotPackage.BarPlotter;
 import PlotPackage.Plotter;
-import SAT.*;
-import Storages.*;
+import HeuristicSearch.SAT.*;
+import HeuristicSearch.Storages.*;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Main {
 
+    public static class IntTab
+    {
+        int[] tab;
 
-    public static void main(String[] args) throws IOException {
-        String file = "test.cnf";
-        for (int i = 1; i < 11; i++) {
-            String file2 = "uf75-0" + i + ".cnf";
-
-            //Add the plotter here and set it up.
-            //XYPlotter dataBarPlotter = new XYPlotter(file2, "Attempt", "Percentage");
-//            BarPlotter dataBarPlotter = new BarPlotter(file2,"Attempt","Percentage");
-//            dataBarPlotter.setUpAndShow();
-
-            System.out.println("FILE : " + file2 + "\n");
-            for (int j = 0; j < 1; j++) {
-                System.out.println("ATTEMPT : " + (j + 1));
-                SATNode n = executeSATDepth("UF75.325.100/" + file2, null, j+1);
-//            SATNode n = executeSATDepth("test.cnf");
-
-                if (n != null) {
-                    LinkedList<Node> nodes = n.getNodesToRoot();
-                    nodes.removeFirst();
-                    for (Node no : nodes) {
-                        System.out.print(no + " ");
-                    }
-                    System.out.println();
-                }
-            }
+        public IntTab(int... tab) {
+            this.tab = tab;
         }
 
+        @Override
+        public boolean equals(Object tab)
+        {
+            IntTab t = (IntTab) tab;
+            return Arrays.equals(this.tab,t.tab);
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+//        String file = "test.cnf";
+//        for (int i = 1; i < 11; i++) {
+//            String file2 = "uf75-0" + i + ".cnf";
+//
+//            //Add the plotter here and set it up.
+//            //XYPlotter dataBarPlotter = new XYPlotter(file2, "Attempt", "Percentage");
+////            BarPlotter dataBarPlotter = new BarPlotter(file2,"Attempt","Percentage");
+////            dataBarPlotter.setUpAndShow();
+//
+//            System.out.println("FILE : " + file2 + "\n");
+//            for (int j = 0; j < 1; j++) {
+//                System.out.println("ATTEMPT : " + (j + 1));
+//                SATNode n = executeSATDepth("UF75.325.100/" + file2, null, j+1);
+////            SATNode n = executeSATDepth("test.cnf");
+//
+//                if (n != null) {
+//                    LinkedList<Node> nodes = n.getNodesToRoot();
+//                    nodes.removeFirst();
+//                    for (Node no : nodes) {
+//                        System.out.print(no + " ");
+//                    }
+//                    System.out.println();
+//                }
+//            }
+//        }
+
+
+
+        HashMap<IntTab,String> map = new HashMap<>();
+        map.put(new IntTab(1,2,3),"A");
+        IntTab a = new IntTab(1,2);
+        IntTab b = new IntTab(1,2,3);
+        map.put(b,"C");
+        if(map.containsKey(a))
+            System.out.println("found: "+map.get(a));
+        if(map.containsKey(b))
+            System.out.println("found: "+map.get(b));
+        if(a.equals(b))
+            System.out.println("equal!!");
+        else
+            System.out.println("not equal!!");
 
     }
 
